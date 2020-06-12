@@ -1,0 +1,48 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+import theme from '@/design-system/theme-ui.theme.ts';
+
+<Meta title="Design Tokens/Colors" />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem title="theme.colors.primary" subtitle="Primary" colors={[theme.colors.primary]}/>
+  <ColorItem title="theme.colors.primaryHover" subtitle="Primary hover" colors={[theme.colors.primaryHover]}/>
+  <ColorItem title="theme.colors.secondary" subtitle="Secondary" colors={[theme.colors.secondary]}/>
+
+
+  <ColorItem title="theme.colors.text" subtitle="Text" colors={[theme.colors.text]}/>
+  <ColorItem title="theme.colors.textMuted" subtitle="Text Muted" colors={[theme.colors.textMuted]}/>
+
+  <ColorItem title="theme.colors.background" subtitle="Background" colors={[theme.colors.background]}/>
+
+  <ColorItem title="theme.colors.muted" subtitle="Muted" colors={[theme.colors.muted]}/>
+
+  <ColorItem title="theme.colors.success" subtitle="Success" colors={[theme.colors.success]}/>
+  <ColorItem title="theme.colors.info" subtitle="Info" colors={[theme.colors.info]}/>
+  <ColorItem title="theme.colors.warning" subtitle="Warning" colors={[theme.colors.warning]}/>
+  <ColorItem title="theme.colors.danger" subtitle="Danger" colors={[theme.colors.danger]}/>
+
+  <ColorItem title="theme.colors.light" subtitle="Light" colors={[theme.colors.light]}/>
+  <ColorItem title="theme.colors.dark" subtitle="Dark" colors={[theme.colors.dark]}/>
+
+  <ColorItem title="theme.colors.black" subtitle="Black" colors={[theme.colors.black]}/>
+  <ColorItem title="theme.colors.white" subtitle="White" colors={[theme.colors.white]}/>
+  <ColorItem title="theme.colors.grayDark" subtitle="Gray dark" colors={[theme.colors.grayDark]}/>
+</ColorPalette>
+
+# Palettes
+
+<ColorPalette>
+  <ColorItem title="theme.colors.gray" subtitle="Gray" colors={theme.colors.gray.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.red" subtitle="Red" colors={theme.colors.red.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.orange" subtitle="Orange" colors={theme.colors.orange.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.yellow" subtitle="Yellow" colors={theme.colors.yellow.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.green" subtitle="Green" colors={theme.colors.green.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.teal" subtitle="Teal" colors={theme.colors.teal.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.blue" subtitle="Blue" colors={theme.colors.blue.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.indigo" subtitle="Indigo" colors={theme.colors.indigo.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.purple" subtitle="Purple" colors={theme.colors.purple.filter(l => l !== null)}/>
+  <ColorItem title="theme.colors.pink" subtitle="Pink" colors={theme.colors.pink.filter(l => l !== null)}/>
+</ColorPalette>

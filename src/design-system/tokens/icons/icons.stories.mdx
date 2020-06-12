@@ -1,0 +1,37 @@
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
+
+import featherIcons from '@/design-system/tokens/icons/feather-icons';
+import Icon from '@/design-system/components/icon/Icon';
+
+<Meta
+  title="Design Tokens/Feather Icons"
+/>
+
+# Feather Icons
+
+These are all the available icons from the `feather-icons` icon set.
+
+We encourage you use the icons via the Icon React component:
+
+```jsx
+import React from 'react';
+
+import {ReactComponent as ActivityIcon} from '@/design-system/icons/source/activity.svg';
+import Icon from '@/design-system/components/icon/Icon';
+
+const SomeComponent = () => (
+  <Icon>
+    <ActivityIcon/>
+  </Icon>
+);
+```
+
+<IconGallery>
+  {Object.keys(featherIcons).map(iconKey => (
+      <IconItem name={featherIcons[iconKey].name} key={featherIcons[iconKey].name}>
+        <Icon>
+          <svg {...featherIcons[iconKey].attrs} dangerouslySetInnerHTML={{__html: featherIcons[iconKey].contents}}/>
+        </Icon>
+      </IconItem>
+    ))}
+</IconGallery>

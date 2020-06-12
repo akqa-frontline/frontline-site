@@ -1,0 +1,20 @@
+import { Meta, Story, Stories, Preview, Description } from '@storybook/addon-docs/blocks';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+import theme from '@/design-system/theme-ui.theme';
+
+import MDXArticleKitchensink from "../../../../.storybook/mdx-kitchensinks/article.mdx";
+
+<Meta
+  title="MDX/Kitchen Sinks"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+<Preview>
+  <Story name="Article">
+      <MDXArticleKitchensink/>
+  </Story>
+</Preview>

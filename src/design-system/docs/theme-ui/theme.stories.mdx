@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+import ThemeUIThemeOutput from '../../../../.storybook/components/Theme-UI-theme-output';
+
+import theme from '@/design-system/theme-ui.theme';
+
+<Meta
+  title="Theme UI/Theme"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+# Theme UI theme configuration
+
+The theme extends the `$theme-ui/preset-tailwind` theme and uses `@theme-ui/prism/presets/night-owl` as the syntax highlighting theme.
+
+<ThemeUIThemeOutput theme={theme}/>

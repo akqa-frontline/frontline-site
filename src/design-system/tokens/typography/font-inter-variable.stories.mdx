@@ -1,0 +1,46 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+import {VariableTypeset} from '../../../../.storybook/components/VariableTypeset';
+
+import theme from '@/design-system/theme-ui.theme.ts';
+
+<Meta title="Design Tokens/Fonts/Inter - Variable" />
+
+# Inter - Variable
+
+<br/>
+
+### Explore font settings
+
+<VariableTypeset
+  fontFamily={theme.fonts.body}
+  fontWeight={theme.fontWeights.normal}
+  fontWeightRange={[100, 900]}
+  fontSize={36}
+  fontSizeRange={[11, 128]}
+  fontSlant={0}
+  fontSlantRange={[0, 10]}
+  features={{
+    'calt': 'Contextual alternates',
+    'tnum': 'Tabular numbers',
+    'frac': 'Fractions',
+    'case': 'Case alternates',
+    'rlig': 'Ligatures',
+    'dlig': 'Discretionary ligatures',
+    'numr': 'Numerators',
+    'dnom': 'Denominators',
+    'sups': 'Superscript',
+    'subs': 'Subscript',
+    'ss01': 'Stylistic set 1: Alternate digits',
+    'ss02': 'Stylistic set 2: Disambiguation',
+    'ss03': 'Stylistic set 3: r curves into round neighbors',
+    'zero': 'Slashed Zero'
+  }}
+/>
+
+### Font sizes
+
+<Typeset
+  fontFamily={theme.fonts.body}
+  fontSizes={theme.fontSizes}
+/>

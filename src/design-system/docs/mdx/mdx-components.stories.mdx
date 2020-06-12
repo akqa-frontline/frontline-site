@@ -1,0 +1,214 @@
+import { Meta, Story, Stories, Preview, Description, Subheading } from '@storybook/addon-docs/blocks';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+import theme from '@/design-system/theme-ui.theme';
+
+import MDXHeading1 from "../../../../.storybook/mdx-components/heading1.mdx";
+import MDXHeading2 from "../../../../.storybook/mdx-components/heading2.mdx";
+import MDXHeading3 from "../../../../.storybook/mdx-components/heading3.mdx";
+import MDXHeading4 from "../../../../.storybook/mdx-components/heading4.mdx";
+import MDXHeading5 from "../../../../.storybook/mdx-components/heading5.mdx";
+import MDXHeading6 from "../../../../.storybook/mdx-components/heading6.mdx";
+
+import MDXParagraph from "../../../../.storybook/mdx-components/paragraph.mdx";
+import MDXBlockQuote from "../../../../.storybook/mdx-components/blockquote.mdx";
+import MDXStrong from "../../../../.storybook/mdx-components/strong.mdx";
+import MDXEmphasis from "../../../../.storybook/mdx-components/emphasis.mdx";
+import MDXDelete from "../../../../.storybook/mdx-components/delete.mdx";
+
+import MDXBreak from "../../../../.storybook/mdx-components/break.mdx";
+import MDXThematicBreak from "../../../../.storybook/mdx-components/thematicBreak.mdx";
+
+import MDXInlineCode from "../../../../.storybook/mdx-components/inline-code.mdx";
+import MDXCode from "../../../../.storybook/mdx-components/code.mdx";
+import MDXCodeJSX from "../../../../.storybook/mdx-components/syntax-highlighting/code-jsx.mdx";
+import MDXCodeTS from "../../../../.storybook/mdx-components/syntax-highlighting/code-typescript.mdx";
+
+import MDXList from "../../../../.storybook/mdx-components/list.mdx";
+import MDXOrderedList from "../../../../.storybook/mdx-components/ordered-list.mdx";
+
+import MDXTable from "../../../../.storybook/mdx-components/table.mdx";
+import MDXLink from "../../../../.storybook/mdx-components/link.mdx";
+import MDXImage from "../../../../.storybook/mdx-components/image.mdx";
+
+<Meta
+  title="MDX/Components"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+# MDX Components
+
+Theme UI will add styles for all MDX components - much like global styles.
+
+<Subheading>Heading 1</Subheading>
+
+<Preview>
+  <Story name="Heading 1">
+    <MDXHeading1/>
+  </Story>
+</Preview>
+
+<Subheading>Heading 2</Subheading>
+
+<Preview>
+  <Story name="Heading 2">
+    <MDXHeading2/>
+  </Story>
+</Preview>
+
+<Subheading>Heading 3</Subheading>
+
+<Preview>
+  <Story name="Heading 3">
+    <MDXHeading3/>
+  </Story>
+</Preview>
+
+<Subheading>Heading 4</Subheading>
+
+<Preview>
+  <Story name="Heading 4">
+    <MDXHeading4/>
+  </Story>
+</Preview>
+
+<Subheading>Heading 5</Subheading>
+
+<Preview>
+  <Story name="Heading 5">
+    <MDXHeading5/>
+  </Story>
+</Preview>
+
+<Subheading>Heading 6</Subheading>
+
+<Preview>
+  <Story name="Heading 6">
+    <MDXHeading6/>
+  </Story>
+</Preview>
+
+<Subheading>Paragraph</Subheading>
+
+<Preview>
+  <Story name="Paragraph">
+    <MDXParagraph/>
+  </Story>
+</Preview>
+
+<Subheading>Block Quoute</Subheading>
+
+<Preview>
+  <Story name="Block Quote">
+    <MDXBlockQuote/>
+  </Story>
+</Preview>
+
+<Subheading>Strong, Emphasis, Delete</Subheading>
+
+<Preview>
+  <Story name="Strong">
+    <MDXStrong/>
+  </Story>
+  <Story name="Emphasis">
+    <MDXEmphasis/>
+  </Story>
+  <Story name="Delete">
+    <MDXDelete/>
+  </Story>
+</Preview>
+
+<Subheading>Break</Subheading>
+
+<Preview>
+  <Story name="Break">
+    <MDXBreak/>
+  </Story>
+</Preview>
+
+<Subheading>Thematic Break</Subheading>
+
+<Preview>
+  <Story name="Thematic Break">
+    <MDXThematicBreak/>
+  </Story>
+</Preview>
+
+<Subheading>Inline code</Subheading>
+
+<Preview>
+  <Story name="Inline code">
+    <MDXInlineCode/>
+  </Story>
+</Preview>
+
+<Subheading>Code</Subheading>
+
+<Preview>
+  <Story name="Code">
+    <MDXCode/>
+  </Story>
+</Preview>
+
+<Subheading>Syntax Highlighting</Subheading>
+
+Refer to Prism documentation for supported languages, here are two common examples:
+
+<Subheading>JSX</Subheading>
+
+<Preview>
+  <Story name="Code - JSX">
+    <MDXCodeJSX/>
+  </Story>
+</Preview>
+
+<Subheading>Typescript</Subheading>
+
+<Preview>
+  <Story name="Code - Typescript">
+    <MDXCodeTS/>
+  </Story>
+</Preview>
+
+<Subheading>List</Subheading>
+
+<Preview>
+  <Story name="List">
+    <MDXList/>
+  </Story>
+</Preview>
+
+<Subheading>Ordered list</Subheading>
+
+<Preview>
+  <Story name="Ordered list">
+    <MDXOrderedList/>
+  </Story>
+</Preview>
+
+<Subheading>Table</Subheading>
+
+<Preview>
+  <Story name="Table">
+    <MDXTable/>
+  </Story>
+</Preview>
+
+<Subheading>Link</Subheading>
+
+<Preview>
+  <Story name="Link">
+    <MDXLink/>
+  </Story>
+</Preview>
+
+<Subheading>Image</Subheading>
+
+<Preview>
+  <Story name="Image">
+    <MDXImage/>
+  </Story>
+</Preview>

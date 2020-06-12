@@ -1,0 +1,11 @@
+```jsx
+import React from 'react'
+import { ThemeProvider } from 'theme-ui'
+// highlight-start
+import theme from './theme'
+// highlight-end
+
+export default props => (
+  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+)
+```
