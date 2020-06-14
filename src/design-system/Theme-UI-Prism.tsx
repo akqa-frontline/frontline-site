@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React, { ComponentProps } from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import { jsx, Styled } from 'theme-ui';
+import { Styled } from 'theme-ui';
 
 const aliases: Record<string, Language | undefined> = {
   js: 'javascript',
@@ -48,8 +47,9 @@ export default function ThemeUIPrism({
   const lang = aliases[language] || language;
   let startEndRangesToHighlight: number[] = [];
 
-  const findStartAndEndHighlights = (tokens: Token[][]) => {
-    const tokensWithoutHighlightComments = tokens.filter((item, index) => {
+  const findStartAndEndHighlights = (tokens: Token[][]) =>
+    // eslint-disable-next-line array-callback-return
+    tokens.filter((item, index) => {
       const removeLine = item
         .map(({ content }) => {
           if (content === '// highlight-start') {
@@ -60,6 +60,8 @@ export default function ThemeUIPrism({
             startEndRangesToHighlight.push(index - 2); // since we're removing start and end lines, we'll shorten the range by 2 lines
             return true;
           }
+
+          return false;
         })
         .filter(Boolean)[0];
 
@@ -67,8 +69,6 @@ export default function ThemeUIPrism({
         return item;
       }
     });
-    return tokensWithoutHighlightComments;
-  };
 
   const isStartEndHighlighted = (index: number) => {
     return checkRanges(startEndRangesToHighlight, index);

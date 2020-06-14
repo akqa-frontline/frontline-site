@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /out/
+.mdx-data/
 
 # production
 /build
@@ -26,3 +27,4 @@ yarn-error.log*
 
 # IDEs
 .idea
+

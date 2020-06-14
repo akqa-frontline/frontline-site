@@ -1,5 +1,6 @@
 const path = require('path');
-const nextMDX = require('@next/mdx');
+// const nextMDX = require('@next/mdx');
+const withMdxEnhanced = require('next-mdx-enhanced')
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const sassJsonImporter = require('node-sass-json-importer');
 const sassGlobImporter = require('node-sass-glob-importer');
@@ -8,14 +9,14 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const withMDX = nextMDX({
-  options: {
-    remarkPlugins: [
-      require('remark-slug'),
-      require('remark-autolink-headings'),
-    ],
-  },
-  extension: /\.mdx?$/,
+const withMDX = withMdxEnhanced({
+  layoutPath: 'src/design-system/components/layouts',
+  defaultLayout: true,
+  fileExtensions: ['mdx'],
+  remarkPlugins: [
+    require('remark-slug'),
+    require('remark-autolink-headings'),
+  ]
 });
 
 const nextConfig = {
