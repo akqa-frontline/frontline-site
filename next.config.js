@@ -1,6 +1,6 @@
 const path = require('path');
 // const nextMDX = require('@next/mdx');
-const withMdxEnhanced = require('next-mdx-enhanced')
+const withMdxEnhanced = require('next-mdx-enhanced');
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const sassJsonImporter = require('node-sass-json-importer');
 const sassGlobImporter = require('node-sass-glob-importer');
@@ -13,10 +13,7 @@ const withMDX = withMdxEnhanced({
   layoutPath: 'src/design-system/components/layouts',
   defaultLayout: true,
   fileExtensions: ['mdx'],
-  remarkPlugins: [
-    require('remark-slug'),
-    require('remark-autolink-headings'),
-  ]
+  remarkPlugins: [require('remark-slug'), require('remark-autolink-headings')],
 });
 
 const nextConfig = {
@@ -32,6 +29,25 @@ const nextConfig = {
     modern: true,
   },
   webpack: config => {
+    // We add support for loading SVG as React components (and more) in @akqa-frontline/js-config-webpack-plugin
+    // As we dont recommend overriting other frameworks JS configurations, we just add @svgr/webpack to Next and Storybook
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: {
+                removeViewBox: false,
+              },
+            },
+          },
+        },
+        'url-loader',
+      ],
+    });
+
     return config;
   },
 };

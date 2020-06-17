@@ -22,13 +22,6 @@ module.exports = {
     '@storybook/addon-docs',
   ],
   webpackFinal: async config => {
-    const assetRule = config.module.rules.find(({ test }) => test.test('.svg'));
-
-    const assetLoader = {
-      loader: assetRule.loader,
-      options: assetRule.options || assetRule.query,
-    };
-
     config.resolve = {
       ...config.resolve,
       extensions: ['.ts', '.tsx', '.js', '.mdx', '.md'],
@@ -38,19 +31,52 @@ module.exports = {
       },
     };
 
+    // While Next.js' webpack configuration is currently too complex for the Frontline Scss package to work with,
+    // the Storybook webapck configuration is just like ours and we can just use our package,
+    // instead of manually adding Frontline scss features by hand like in Next.js.
+
+    // Remove the existing css rule
+    config.module.rules = config.module.rules.filter(
+      f => f.test.toString() !== '/\\.css$/'
+    );
+    // Add Frontline (S)CSS rule
     config.plugins.push(
-      // While Next.js' webpack configuration is currently too complex for the Frontline Scss package to work with,
-      // the Storybook webapck configuration is just like ours and we can just use our package,
-      // instead of manually adding Frontline scss features by hand like in Next.js.
       new FrontlineScssConfigWebpackPlugin({ browserslistEnv: 'modern' }),
     );
 
-    // We dont use @frontline/js-config-webpack-plugin, we are using Next.js - both has features for import SVG as React components.
-    // Storybook does not - but it is not recommended to replace the JS/TS capabilities of Storybook, or Next, with Frontline.
-    // Instead we setup the SVG import as React components manually.
-    config.module.rules.unshift({
+    // We add support for loading SVG as React components (and more) in @akqa-frontline/js-config-webpack-plugin
+    // As we dont recommend overriting other frameworks JS configurations, we just add @svgr/webpack to Next and Storybook
+
+    // Add SVGR Loader
+    // ========================================================
+    // Remove svg rules from existing webpack rule
+    config.module.rules = config.module.rules.map(rule => {
+      if (
+        String(rule.test) === String(/\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/)
+      ) {
+        return {
+          ...rule,
+          test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/
+        }
+      }
+
+      return rule
+    });
+    config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack', assetLoader],
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: {
+                removeViewBox: false
+              }
+            }
+          }
+        },
+        "url-loader"
+      ],
     });
 
     return config;

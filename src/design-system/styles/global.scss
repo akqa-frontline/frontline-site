@@ -1,3 +1,9 @@
 @import 'reset';
 
 @import 'fonts';
+
+// We will provide all styles for reach ui components
+// https://reacttraining.com/reach-ui/styling
+:root {
+  --reach-accordion: 1;
+}

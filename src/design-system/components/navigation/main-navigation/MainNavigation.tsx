@@ -1,24 +1,49 @@
 import React from 'react';
 
-// @ts-ignore
-import { frontMatter as rootPages } from '../../../../pages/*/index.mdx';
-import { Link } from '@/components/link/Link';
+import { Accordion, AccordionItem, AccordionPanel } from '@reach/accordion';
 
-const slugify = resourcePath =>
-  resourcePath.split('/pages/')[1].replace('/index.mdx', '');
+import { sidebars } from '@/sidebars';
+
+import { Link } from '@/components/link/Link';
+import { AccordionButton } from '@/design-system/components/accordion/AccordionButton';
+
+interface NavListProps {
+  navList: any;
+}
+
+const NavList: React.FunctionComponent<NavListProps> = ({ navList }) => {
+  return (
+    <Accordion collapsible multiple>
+      {Object.keys(navList).map(key => (
+        <AccordionItem key={key}>
+          {typeof navList[key] === 'string' ? (
+            <Link href={navList[key]}>{key}</Link>
+          ) : (
+            <>
+              <AccordionButton>{key}</AccordionButton>
+              <AccordionPanel>
+                <NavList navList={navList[key]} />
+              </AccordionPanel>
+            </>
+          )}
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+};
 
 const MainNavigation: React.FunctionComponent = () => {
   return (
-    <nav>
-      {rootPages.map(rootPage => (
-        <Link
-          key={slugify(rootPage.__resourcePath)}
-          href={`/${slugify(rootPage.__resourcePath)}`}
-        >
-          {rootPage.title}
-        </Link>
+    <Accordion collapsible multiple>
+      {Object.keys(sidebars.docs).map(navItem => (
+        <AccordionItem key={navItem}>
+          <AccordionButton>{navItem}</AccordionButton>
+          <AccordionPanel>
+            <NavList key={navItem} navList={sidebars.docs[navItem]} />
+          </AccordionPanel>
+        </AccordionItem>
       ))}
-    </nav>
+    </Accordion>
   );
 };
 
