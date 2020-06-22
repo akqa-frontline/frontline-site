@@ -9,8 +9,8 @@ import {
 } from '@reach/accordion';
 
 export default {
-  title: 'Components/Accordion/AccordionButton',
-  // component: AccordionButton,
+  title: 'Components/Accordion/components/AccordionButton',
+  component: AccordionButton,
   decorators: [storyFn => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>],
 };
 

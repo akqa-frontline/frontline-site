@@ -32,6 +32,7 @@ export const sidebars = {
       },
       'Manual Setup': 'docs/getting-started/manual-setup',
     },
+    Word: 'docs/404',
     // Development: {
     //   Development: 'docs/development',
     //   'Webpack Configuration': 'docs/development/webpack-config',

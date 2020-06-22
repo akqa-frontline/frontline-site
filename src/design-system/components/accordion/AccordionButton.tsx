@@ -3,13 +3,15 @@ import { jsx } from 'theme-ui';
 import React from 'react';
 import {
   AccordionButton as ReachAccordionButton,
-  AccordionButtonProps,
+  AccordionButtonProps as ReachAccordionButtonProps,
   useAccordionItemContext,
 } from '@reach/accordion';
 
 import Icon from '@/design-system/components/icon/Icon';
 import { ReactComponent as ChevronRight } from '@/design-system/icons/source/chevron-right.svg';
 import { ReactComponent as ChevronDown } from '@/design-system/icons/source/chevron-down.svg';
+
+export interface AccordionButtonProps extends ReachAccordionButtonProps {}
 
 const AccordionButton: React.FunctionComponent<AccordionButtonProps> = ({
   children,
@@ -33,7 +35,7 @@ const AccordionButton: React.FunctionComponent<AccordionButtonProps> = ({
         paddingY: 1,
         color: 'primary',
         backgroundColor: 'transparent',
-        fontSize: [1, 2],
+        // fontSize: [1, 2],
         '&:hover': {
           backgroundColor: 'light',
         },

@@ -6,6 +6,11 @@ export interface LinkProps
   extends NextLinkProps,
     Omit<ComponentProps<'a'>, keyof NextLinkProps> {}
 
+/**
+ * Enhanced Next Link
+ *
+ * We deal with the href-less a tag so you dont have to - happy typescript compilation and linting
+ */
 export const Link = ({
   href,
   as,

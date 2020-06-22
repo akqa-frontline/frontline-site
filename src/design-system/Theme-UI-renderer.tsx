@@ -3,17 +3,19 @@ import { ThemeProvider } from 'theme-ui';
 
 import theme from '@/design-system/theme-ui.theme';
 import ThemeUIPrism from '@/design-system/Theme-UI-Prism';
+import { Heading } from '@/design-system/components/heading/Heading';
 
-const heading = Tag => props => {
+// Add a href anchor to all headings
+const heading = as => props => {
   if (!props.id) {
-    return <Tag {...props} />;
+    return <Heading as={as} {...props} />;
   }
 
   return (
-    <Tag {...props}>
+    <Heading as={as} {...props}>
       <a href={`#${props.id}`}>#</a>
       {props.children}
-    </Tag>
+    </Heading>
   );
 };
 

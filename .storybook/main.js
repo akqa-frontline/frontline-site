@@ -27,7 +27,7 @@ module.exports = {
       extensions: ['.ts', '.tsx', '.js', '.mdx', '.md'],
       alias: {
         // need to configure Storybook Webpack alias, this is done automagically by Next via tsconfig - but not by Storybook
-        '@/design-system': path.resolve(__dirname, '../src/design-system'),
+        '@/design-system': path.resolve(__dirname, '../src/design-system')
       },
     };
 

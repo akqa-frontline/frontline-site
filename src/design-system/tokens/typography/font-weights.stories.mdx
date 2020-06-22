@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import {FontWeights} from '../../../../.storybook/components/FontWeights';
+
+import theme from '@/design-system/theme-ui.theme.ts';
+
+<Meta
+  title="Design Tokens/Typography/Font Weights"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+# Font Weights
+
+<FontWeights
+  fontFamily={theme.fonts.body}
+  fontWeights={theme.fontWeights}
+/>

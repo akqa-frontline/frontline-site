@@ -1,0 +1,43 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Accordion } from '@/design-system/components/accordion/Accordion';
+import { AccordionButton } from '@/design-system/components/accordion/AccordionButton';
+import { AccordionItem as ReachAccordionItem, AccordionPanel as ReachAccordionPanel } from '@reach/accordion';
+
+import { sidebars } from '../../../sidebars';
+
+<Meta
+  title="Components/Accordion/Accordion"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+<Story name="With sidebars.docs">
+  {() => {
+    function recursive(list) {
+      return (
+        <Accordion collapsible multiple>
+          {Object.keys(list).map(key => (
+            <ReachAccordionItem key={key}>
+              {typeof list[key] === 'string' ? (
+                <a href="#">{key}</a>
+              ) : (
+                <>
+                  <AccordionButton>{key}</AccordionButton>
+                  <ReachAccordionPanel>
+                    {recursive(list[key])}
+                  </ReachAccordionPanel>
+                </>
+              )}
+            </ReachAccordionItem>
+          ))}
+        </Accordion>
+      )
+    }
+    return recursive(sidebars.docs);
+  }}
+</Story>

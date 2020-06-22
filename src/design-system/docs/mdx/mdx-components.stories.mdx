@@ -1,7 +1,6 @@
 import { Meta, Story, Stories, Preview, Description, Subheading } from '@storybook/addon-docs/blocks';
 
 import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
-import theme from '@/design-system/theme-ui.theme';
 
 import MDXHeading1 from "../../../../.storybook/mdx-components/heading1.mdx";
 import MDXHeading2 from "../../../../.storybook/mdx-components/heading2.mdx";
@@ -35,7 +34,7 @@ import MDXImage from "../../../../.storybook/mdx-components/image.mdx";
   title="MDX/Components"
   decorators={[
     // wrap these stories in the Theme UI provider
-    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
   ]}
 />
 

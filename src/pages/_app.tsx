@@ -5,7 +5,7 @@ import '@reach/accordion/styles.css';
 
 import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
 import '@/design-system/styles/global.scss';
-import MainNavigation from '@/design-system/components/navigation/main-navigation/MainNavigation';
+import MainNavigation from '@/components/navigation/main-navigation/MainNavigation';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <ThemeUIRenderer>
