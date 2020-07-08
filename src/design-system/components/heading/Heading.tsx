@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Box, HeadingProps as ThemeUIHeadingProps, jsx } from 'theme-ui';
 import React from 'react';
+import get from 'lodash/get';
 
 import theme from '@/design-system/theme-ui.theme';
 
@@ -19,8 +20,15 @@ const Heading = React.forwardRef(
         as={props.as || 'h2'}
         variant={props.variant || 'heading'}
         sx={{
-          fontVariationSettings: `"wght" ${props.fontWeight ||
-            (theme[props.variant] && theme[props.variant].fontWeight) ||
+          fontVariationSettings: `"wght" ${get(
+            theme,
+            `fontWeights.${props.fontWeight}`,
+          ) ||
+            (get(theme, props.variant) &&
+              get(
+                theme,
+                `fontWeights.${get(theme, props.variant)['fontWeight']}`,
+              )) ||
             theme.fontWeights['heading']}`,
         }}
         {...props}

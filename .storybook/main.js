@@ -10,16 +10,12 @@ module.exports = {
     '../src/design-system/**/*.stories.mdx',
   ],
   addons: [
-    {
-      name: '@storybook/preset-typescript',
-      tsLoaderOptions: {
-        configFile: path.resolve(__dirname, './tsconfig.json'),
-      },
-    },
-    //
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-docs',
+    '@storybook/addon-controls',
+    '@storybook/addon-viewport',
+    '@storybook/addon-a11y/register',
   ],
   webpackFinal: async config => {
     config.resolve = {
@@ -27,7 +23,8 @@ module.exports = {
       extensions: ['.ts', '.tsx', '.js', '.mdx', '.md'],
       alias: {
         // need to configure Storybook Webpack alias, this is done automagically by Next via tsconfig - but not by Storybook
-        '@/design-system': path.resolve(__dirname, '../src/design-system')
+        '@/design-system': path.resolve(__dirname, '../src/design-system'),
+        '@/components': path.resolve(__dirname, '../src/components'),
       },
     };
 
@@ -37,7 +34,7 @@ module.exports = {
 
     // Remove the existing css rule
     config.module.rules = config.module.rules.filter(
-      f => f.test.toString() !== '/\\.css$/'
+      f => f.test.toString() !== '/\\.css$/',
     );
     // Add Frontline (S)CSS rule
     config.plugins.push(
@@ -52,15 +49,18 @@ module.exports = {
     // Remove svg rules from existing webpack rule
     config.module.rules = config.module.rules.map(rule => {
       if (
-        String(rule.test) === String(/\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/)
+        String(rule.test) ===
+        String(
+          /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+        )
       ) {
         return {
           ...rule,
-          test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/
-        }
+          test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+        };
       }
 
-      return rule
+      return rule;
     });
     config.module.rules.push({
       test: /\.svg$/,
@@ -70,12 +70,12 @@ module.exports = {
           options: {
             svgoConfig: {
               plugins: {
-                removeViewBox: false
-              }
-            }
-          }
+                removeViewBox: false,
+              },
+            },
+          },
         },
-        "url-loader"
+        'url-loader',
       ],
     });
 

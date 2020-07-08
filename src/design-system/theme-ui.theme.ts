@@ -10,6 +10,19 @@ export default {
     ...typography.fonts,
   },
   fontSizes: [...typography.fontSizes],
+  space: {
+    ...tailwind.space,
+    // add a nice little pixel grid
+    pg0: 0,
+    pg1: '4px',
+    pg2: '8px',
+    pg3: '12px',
+    pg4: '16px',
+    pg5: '20px',
+    pg6: '24px',
+    pg7: '28px',
+    pg8: '32px',
+  },
   text: {
     heading: {
       fontFamily: 'heading',
@@ -19,7 +32,7 @@ export default {
       // extends the text.heading styles
       variant: 'text.heading',
       fontSize: 10,
-      letterSpacing: 'widest',
+      letterSpacing: 'tighter',
       fontWeight: 'thin',
     },
     display2: {
@@ -27,7 +40,7 @@ export default {
       variant: 'text.heading',
       fontSize: 9,
       letterSpacing: 'wider',
-      fontWeight: 'thin',
+      fontWeight: 'extrabold',
     },
   },
   styles: {

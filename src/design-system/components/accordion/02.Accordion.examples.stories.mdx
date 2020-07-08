@@ -1,0 +1,200 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../.storybook/components/ExternalLibraryLink';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Accordion } from '@/design-system/components/accordion/Accordion';
+import { AccordionItem } from '@/design-system/components/accordion/AccordionItem';
+import { AccordionPanel } from '@/design-system/components/accordion/AccordionPanel';
+import { AccordionButton } from '@/design-system/components/accordion/AccordionButton';
+import { AccordionLink } from '@/design-system/components/accordion/AccordionLink';
+
+import { sidebars } from '../../../sidebars';
+
+<Meta
+  title="Components/Accordion/examples"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Basic
+
+<Preview>
+  <Story name="Basic">
+    <Accordion>
+      <AccordionItem>
+        <AccordionButton>Panel</AccordionButton>
+        <AccordionPanel>Accordion Panel</AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>Panel</AccordionButton>
+        <AccordionPanel>Accordion Panel</AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Preview>
+
+# Nested with padding hierarchy
+
+Padding can be used on a nested accordion to convey visual hierarchy in levels, remember to disable padding on `<AccordionPanel/>` if you want the highlight effect to stretch to the edges.
+
+<Preview>
+  <Story name="Nested with padding hierarchy">
+    <Accordion>
+      <AccordionItem>
+        <AccordionButton paddingLeft={'pg2'}>Panel</AccordionButton>
+        <AccordionPanel paddingLeft={0}>
+          <Accordion>
+            <AccordionItem>
+              <AccordionButton paddingLeft={'pg3'}>Panel</AccordionButton>
+              <AccordionPanel paddingLeft={0}>
+                <Accordion>
+                  <AccordionItem>
+                    <AccordionButton paddingLeft={'pg4'}>Panel</AccordionButton>
+                    <AccordionPanel paddingLeft={0}>
+                      <Accordion>
+                        <AccordionItem>
+                          <AccordionLink paddingLeft={'pg5'}>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                            <a href="#">Link</a>
+                          </AccordionLink>
+                        </AccordionItem>
+                      </Accordion>
+                    </AccordionPanel>
+                  </AccordionItem>
+                  <AccordionItem>
+                    <AccordionLink>
+                      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                      <a href="#">Link</a>
+                    </AccordionLink>
+                  </AccordionItem>
+                </Accordion>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionLink>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a href="#">Link</a>
+              </AccordionLink>
+            </AccordionItem>
+          </Accordion>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionLink>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#">Link</a>
+        </AccordionLink>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Preview>
+
+# Nested with font size hierarchy
+
+Font sizes can be used on an accordion to convey visual hierarchy in levels or links vs. buttons
+
+<Preview>
+  <Story name="Nested with font size hierarchy">
+    <Accordion>
+      <AccordionItem>
+        <AccordionButton fontSize={[1,2]}>Panel</AccordionButton>
+        <AccordionPanel paddingLeft={0}>
+          <Accordion>
+            <AccordionItem>
+              <AccordionButton fontSize={[0,1]}>Panel</AccordionButton>
+              <AccordionPanel paddingLeft={0}>
+                <Accordion>
+                  <AccordionItem>
+                    <AccordionButton fontSize={0}>Panel</AccordionButton>
+                    <AccordionPanel paddingLeft={0}>
+                      <Accordion>
+                        <AccordionItem>
+                          <AccordionLink fontSize={0}>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                            <a href="#">Link</a>
+                          </AccordionLink>
+                        </AccordionItem>
+                      </Accordion>
+                    </AccordionPanel>
+                  </AccordionItem>
+                  <AccordionItem>
+                    <AccordionLink fontSize={0}>
+                      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                      <a href="#">Link</a>
+                    </AccordionLink>
+                  </AccordionItem>
+                </Accordion>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionLink fontSize={[0,1]}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a href="#">Link</a>
+              </AccordionLink>
+            </AccordionItem>
+          </Accordion>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionLink fontSize={[1,2]}>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#">Link</a>
+        </AccordionLink>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Preview>
+
+# As Sidebar Navigation
+
+Font sizes and padding can be combined, and values determined based on ie. a depth-index passed to a recursive function.
+
+To render a navigation with semantic hierarchy, use the `as` attribute on `<AccordionItem as="ul"/>` and `<AccordionPanel as="li"/>`.
+
+<Preview>
+  <Story name="As Sidebar Navigation">
+    {
+      () => {
+        function recursive(list, level) {
+          return (
+            <Accordion
+              collapsible
+              multiple
+              defaultIndex={[level < 1 ? 0 : null]}
+            >
+              {Object.keys(list).map(key => (
+                <AccordionItem key={key} as="ul">
+                  {typeof list[key] === 'string' ? (
+                    <AccordionLink fontSize={0} paddingLeft={`pg${level < 1 ? 2 : level + 2}`} active={key === 'Getting Started'}>
+                      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                      <a href="#">{key}</a>
+                    </AccordionLink>
+                  ) : (
+                    <li>
+                      <AccordionButton
+                        fontSize={level < 1 ? 1 : 0}
+                        paddingLeft={`pg${level < 1 ? 2 : level + 2}`}
+                      >
+                        {key}
+                      </AccordionButton>
+                      <AccordionPanel paddingLeft={0}>
+                        {recursive(list[key], level + 1)}
+                      </AccordionPanel>
+                    </li>
+                  )}
+                </AccordionItem>
+              ))}
+            </Accordion>
+          );
+        }
+        return recursive(sidebars.docs, 0);
+      }
+    }
+  </Story>
+</Preview>
