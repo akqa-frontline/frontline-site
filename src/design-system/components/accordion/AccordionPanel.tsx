@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, SxStyleProp } from 'theme-ui';
 import React from 'react';
 import {
   AccordionPanel as ReachAccordionPanel,
@@ -11,6 +11,8 @@ export interface AccordionPanelProps extends ReachAccordionPanelProps {
    * Useful to convey hierachy in nested accordions, accepts theme-ui `spacing` values
    */
   paddingLeft?: number | string | number[] | string[];
+  // accept theme-ui sx props
+  sx?: SxStyleProp;
 }
 
 const accordionPanelStyles = {};
@@ -18,6 +20,7 @@ const accordionPanelStyles = {};
 const AccordionPanel: React.FunctionComponent<AccordionPanelProps> = ({
   children,
   paddingLeft = 'pg2',
+  sx,
   ...props
 }) => (
   <ReachAccordionPanel
@@ -26,6 +29,7 @@ const AccordionPanel: React.FunctionComponent<AccordionPanelProps> = ({
     sx={{
       ...accordionPanelStyles,
       paddingLeft,
+      ...sx,
     }}
   />
 );

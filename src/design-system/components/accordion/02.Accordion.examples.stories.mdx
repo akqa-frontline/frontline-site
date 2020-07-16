@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import ExternalLibraryLink from '../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../.storybook/components/ComponentSupport';
 
 import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
 
@@ -161,6 +162,13 @@ To render a navigation with semantic hierarchy, use the `as` attribute on `<Acco
   <Story name="As Sidebar Navigation">
     {
       () => {
+        function getPadding(level) {
+          return level < 1
+            ? 2
+            : level < 2
+              ? level + 3
+              : level + 4;
+        }
         function recursive(list, level) {
           return (
             <Accordion
@@ -171,7 +179,7 @@ To render a navigation with semantic hierarchy, use the `as` attribute on `<Acco
               {Object.keys(list).map(key => (
                 <AccordionItem key={key} as="ul">
                   {typeof list[key] === 'string' ? (
-                    <AccordionLink fontSize={0} paddingLeft={`pg${level < 1 ? 2 : level + 2}`} active={key === 'Getting Started'}>
+                    <AccordionLink fontSize={0} paddingLeft={`pg${getPadding(level)}`} active={key === 'Getting Started'}>
                       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                       <a href="#">{key}</a>
                     </AccordionLink>
@@ -179,7 +187,7 @@ To render a navigation with semantic hierarchy, use the `as` attribute on `<Acco
                     <li>
                       <AccordionButton
                         fontSize={level < 1 ? 1 : 0}
-                        paddingLeft={`pg${level < 1 ? 2 : level + 2}`}
+                        paddingLeft={`pg${getPadding(level)}`}
                       >
                         {key}
                       </AccordionButton>
@@ -196,5 +204,22 @@ To render a navigation with semantic hierarchy, use the `as` attribute on `<Acco
         return recursive(sidebars.docs, 0);
       }
     }
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Accordion sx={{margin: 4}}>
+      <AccordionItem sx={{padding: 2}}>
+        <AccordionButton sx={{bg: 'primary', color: 'white'}}>Panel</AccordionButton>
+        <AccordionPanel>Accordion Panel</AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>Panel</AccordionButton>
+        <AccordionPanel>Accordion Panel</AccordionPanel>
+      </AccordionItem>
+    </Accordion>
   </Story>
 </Preview>

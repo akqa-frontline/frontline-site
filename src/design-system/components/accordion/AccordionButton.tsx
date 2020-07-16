@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, SxStyleProp } from 'theme-ui';
 import React from 'react';
 import {
   AccordionButton as ReachAccordionButton,
@@ -20,6 +20,8 @@ export interface AccordionButtonProps extends ReachAccordionButtonProps {
    * Useful to convey hierachy in nested accordions, accepts theme-ui `spacing` values
    */
   paddingLeft?: number | string | number[] | string[];
+  // accept theme-ui sx props
+  sx?: SxStyleProp;
 }
 
 const accordionButtonStyles = {
@@ -46,6 +48,7 @@ const AccordionButton: React.FunctionComponent<AccordionButtonProps> = ({
   children,
   fontSize = 1,
   paddingLeft = 'pg2',
+  sx,
   ...props
 }) => {
   const { isExpanded } = useAccordionItemContext();
@@ -58,10 +61,11 @@ const AccordionButton: React.FunctionComponent<AccordionButtonProps> = ({
         // styles from props
         fontSize,
         paddingLeft,
+        ...sx,
       }}
     >
       {children}
-      <Icon color="secondary" width={[4, 5]} height={[4, 5]}>
+      <Icon color="secondary" size={[4, 5]}>
         {isExpanded ? <ChevronDown /> : <ChevronRight />}
       </Icon>
     </ReachAccordionButton>

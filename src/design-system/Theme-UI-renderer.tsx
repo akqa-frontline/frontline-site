@@ -6,18 +6,7 @@ import ThemeUIPrism from '@/design-system/Theme-UI-Prism';
 import { Heading } from '@/design-system/components/heading/Heading';
 
 // Add a href anchor to all headings
-const heading = as => props => {
-  if (!props.id) {
-    return <Heading as={as} {...props} />;
-  }
-
-  return (
-    <Heading as={as} {...props}>
-      <a href={`#${props.id}`}>#</a>
-      {props.children}
-    </Heading>
-  );
-};
+const heading = as => props => <Heading as={as} {...props} />;
 
 const components = {
   pre: ({ children }) => <>{children}</>,

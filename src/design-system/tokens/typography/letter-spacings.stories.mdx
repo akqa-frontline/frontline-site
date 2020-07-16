@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import {LetterSpacings} from '../../../../.storybook/components/LetterSpacings';
+
+import theme from '@/design-system/theme-ui.theme.ts';
+
+<Meta
+  title="Design Tokens/Typography/Letter Spacings"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+# Letter Spacings
+
+<LetterSpacings
+  fontFamily={theme.fonts.body}
+  letterSpacings={theme.letterSpacings}
+/>

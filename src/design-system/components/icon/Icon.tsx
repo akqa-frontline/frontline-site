@@ -1,56 +1,44 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { Box, BoxProps, jsx } from 'theme-ui';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ThemeUiBoxProps } from '@/design-system/interface';
 
-export interface IconProps {
-  width?: number | number[] | string | string[];
-  height?: number | number[] | string | string[];
+export interface IconProps extends Omit<ThemeUiBoxProps, 'variant'> {
+  /**
+   * By default the icon will size itself relative to the parent, but size can be overwritten using the `size` prop.
+   */
+  size?: number | number[] | string | string[];
+  /**
+   * Color allows you to set the color of the icon using theme values.
+   */
   color?: string;
 }
 
 const Icon: React.FunctionComponent<IconProps> = ({
-  width,
-  height,
-  color,
+  size = '1em',
+  color = 'currentColor',
   children,
+  sx,
+  ...props
 }) => (
-  <div
+  <Box
+    as="i"
     sx={{
       display: 'inline-block',
+      verticalAlign: 'middle',
       lineHeight: '1',
-      fontSize: width,
-      color: color || 'currentColor',
+      fontSize: size,
+      color: color,
       '> svg': {
-        verticalAlign: 'top',
         width: '1em',
         height: '1em',
       },
+      ...sx,
     }}
+    {...props}
   >
     {children}
-  </div>
+  </Box>
 );
-
-Icon.propTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.number),
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.number),
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
-  color: PropTypes.string,
-};
-
-Icon.defaultProps = {
-  width: 1,
-  height: 1,
-};
 
 export default Icon;

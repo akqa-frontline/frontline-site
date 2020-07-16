@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, SxProps, SxStyleProp } from 'theme-ui';
 import React from 'react';
 import {
   Accordion as ReachAccordion,
@@ -16,6 +16,8 @@ export interface AccordionProps extends ReachAccordionProps {
   defaultIndex?: AccordionIndex;
   index?: AccordionIndex;
   onChange?: (index?: number) => void;
+  // accept theme-ui sx props
+  sx?: SxStyleProp;
 }
 
 interface _ReachAccordionProps extends ReachAccordionProps {
@@ -29,6 +31,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   defaultIndex = 0,
   multiple = false,
   readOnly = false,
+  sx,
   ...props
 }) => (
   <ReachAccordion
@@ -36,7 +39,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     defaultIndex={defaultIndex}
     multiple={multiple}
     readOnly={readOnly}
-    sx={{ ...accordionStyles }}
+    sx={{ ...accordionStyles, ...sx }}
     {...(props as _ReachAccordionProps)}
   />
 );

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { Box, jsx, SxStyleProp } from 'theme-ui';
 import React from 'react';
 
 import { accordionButtonStyles } from '@/design-system/components/accordion/AccordionButton';
@@ -21,6 +21,8 @@ export interface AccordionLinkProps {
    * If true, will highlight the AccordionLink like when hovered
    */
   active?: boolean;
+  // accept theme-ui sx props
+  sx?: SxStyleProp;
 }
 
 const accordionLinkStyles = {
@@ -42,10 +44,11 @@ const AccordionLink: React.FunctionComponent<AccordionLinkProps> = ({
   fontSize = 1,
   paddingLeft = 'pg2',
   active = false,
+  sx,
   ...props
 }) => {
   return (
-    <div
+    <Box
       {...props}
       sx={{
         ...accordionLinkStyles,
@@ -55,10 +58,11 @@ const AccordionLink: React.FunctionComponent<AccordionLinkProps> = ({
         ...(active && {
           ...accordionLinkActiveStyles,
         }),
+        ...sx,
       }}
     >
       {children}
-    </div>
+    </Box>
   );
 };
 

@@ -1,0 +1,124 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../.storybook/components/ComponentSupport';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Heading } from '@/design-system/components/heading/Heading';
+
+<Meta
+  title="Components/Headings"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Default
+
+Docs: <ExternalLibraryLink title="Theme UI - Heading" href="https://theme-ui.com/components/heading"/>
+
+<Preview>
+  <Story name="Default">
+    <Heading>Default</Heading>
+  </Story>
+</Preview>
+
+### Heading Props
+
+<ComponentSupport themeUi={true}/>
+
+<Props of={Heading} />
+
+# Heading 1
+
+<Preview>
+  <Story name="Heading 1">
+    <Heading as="h1">Heading 1</Heading>
+  </Story>
+</Preview>
+
+# Heading 2
+
+<Preview>
+  <Story name="Heading 2">
+    <Heading as="h2">Heading 2</Heading>
+  </Story>
+</Preview>
+
+# Heading 3
+
+<Preview>
+  <Story name="Heading 3">
+    <Heading as="h3">Heading 3</Heading>
+  </Story>
+</Preview>
+
+# Heading 4
+
+<Preview>
+  <Story name="Heading 4">
+    <Heading as="h4">Heading 4</Heading>
+  </Story>
+</Preview>
+
+# Heading 5
+
+<Preview>
+  <Story name="Heading 5">
+    <Heading as="h5">Heading 5</Heading>
+  </Story>
+</Preview>
+
+# Heading 6
+
+<Preview>
+  <Story name="Heading 6">
+    <Heading as="h6">Heading 6</Heading>
+  </Story>
+</Preview>
+
+# Display 1
+
+<Preview>
+  <Story name="Display 1">
+    <Heading variant="text.display1">Display 1</Heading>
+  </Story>
+</Preview>
+
+# Display 2
+
+<Preview>
+  <Story name="Display 2">
+    <Heading variant="text.display2">Display 2</Heading>
+  </Story>
+</Preview>
+
+# With Anchor
+
+By adding an `id` prop to a `<Heading/>`, a child `<Link/>` will be rendered with a document fragment link.
+
+<Preview>
+  <Story name="With Anchor">
+    <Heading id="withAnchor">With Anchor</Heading>
+  </Story>
+</Preview>
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Heading color="primary" p={4}>Look at me!</Heading>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Heading sx={{padding: 4, color: 'red.6'}}>Look at me!</Heading>
+  </Story>
+</Preview>
