@@ -1,0 +1,35 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { WithSidesLayout } from '@/design-system/layouts/WithSides';
+import { Box } from '@/design-system/components/elements/box/Box';
+
+<Meta
+  title="Layout/Page Layouts/With Sides"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+    layout: 'fullscreen'
+  }}
+/>
+
+# Default Page Layout
+
+<Preview>
+  <Story name="Default Page Layout">
+    <WithSidesLayout top={<Box>Top</Box>} bottom={<Box as="footer" py={5}>Bottom</Box>} left={<Box>Left</Box>} right={<Box>Right</Box>}>
+      <Box>Content</Box>
+    </WithSidesLayout>
+  </Story>
+</Preview>
+
+### Flex Props
+
+<Props of={DefaultLayout} />

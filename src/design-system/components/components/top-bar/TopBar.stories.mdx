@@ -1,0 +1,39 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import {Link} from "@/design-system/components/elements/link/Link";
+import {TopBar} from "@/design-system/components/components/top-bar/TopBar";
+
+<Meta
+  title="Components/Top Bar"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# TopBar
+
+<Preview>
+  <Story name="default">
+    <TopBar>
+      <Link variant="nav" sx={{color: 'secondary'}}>Link</Link>
+      <Link variant="nav">Link</Link>
+      <Link variant="nav">Link</Link>
+    </TopBar>
+  </Story>
+</Preview>
+
+### TopBar Props
+
+<ComponentSupport themeUi={true} variant={true}/>
+
+<ThemeUIVariantGroup name="top-bar" defaultStylesName="default"/>
+
+<Props of={TopBar} />

@@ -1,20 +1,13 @@
 const path = require('path');
-// const nextMDX = require('@next/mdx');
+const withPlugins = require('next-compose-plugins');
 const withMdxEnhanced = require('next-mdx-enhanced');
-const bundleAnalyzer = require('@next/bundle-analyzer');
+const withBundleAnalyzer = require('@next/bundle-analyzer');
+const withSvgr = require('next-svgr');
 const sassJsonImporter = require('node-sass-json-importer');
 const sassGlobImporter = require('node-sass-glob-importer');
 
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-const withMDX = withMdxEnhanced({
-  layoutPath: 'src/design-system/components/layouts',
-  defaultLayout: true,
-  fileExtensions: ['mdx'],
-  remarkPlugins: [require('remark-slug'), require('remark-autolink-headings')],
-});
+const toc = require('markdown-toc');
+const readingTime = require('reading-time');
 
 const nextConfig = {
   target: 'experimental-serverless-trace',
@@ -28,28 +21,35 @@ const nextConfig = {
   experimental: {
     modern: true,
   },
-  webpack: config => {
-    // We add support for loading SVG as React components (and more) in @akqa-frontline/js-config-webpack-plugin
-    // As we dont recommend overriting other frameworks JS configurations, we just add @svgr/webpack to Next and Storybook
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: {
-                removeViewBox: false,
-              },
-            },
-          },
-        },
-        'url-loader',
-      ],
-    });
-
-    return config;
-  },
 };
 
-module.exports = withMDX(withBundleAnalyzer(nextConfig));
+module.exports = withPlugins(
+  [
+    withBundleAnalyzer({
+      enabled: process.env.ANALYZE === 'true',
+    }),
+    withSvgr,
+    withMdxEnhanced({
+      layoutPath: 'src/layouts',
+      defaultLayout: false,
+      fileExtensions: ['mdx'],
+      remarkPlugins: [require('remark-slug')],
+      rehypePlugins: [],
+      extendFrontMatter: {
+        process: async (mdxContent, frontMatter) => {
+          try {
+            return {
+              ...frontMatter,
+              tableOfContents: toc(mdxContent, {}).json,
+              readingTime: readingTime(mdxContent),
+            };
+          } catch (e) {
+            throw e;
+          }
+        },
+        phase: 'both',
+      },
+    }),
+  ],
+  nextConfig
+);

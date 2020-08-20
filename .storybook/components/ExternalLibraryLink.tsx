@@ -9,9 +9,12 @@ const ExternalLibraryLink: React.FunctionComponent<ExternalLibraryReferenceProps
   title,
   href,
 }) => (
-  <a href={href} target="_blank" rel="noopener nofollow">
-    {title}
-  </a>
+  <>
+    ↗{' '}
+    <a href={href} target="_blank" rel="noopener nofollow">
+      {title}
+    </a>
+  </>
 );
 
 export default ExternalLibraryLink;

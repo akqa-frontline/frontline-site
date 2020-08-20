@@ -1,0 +1,58 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import {Box} from "@/design-system/components/elements/box/Box";
+
+<Meta
+  title="Elements/Box"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Box
+
+Use the Box component as a layout primitive to add margin, padding, and colors to content.
+
+<Preview>
+  <Story name="default">
+    <Box>
+      Hello World
+    </Box>
+  </Story>
+</Preview>
+
+### Box Props
+
+<ComponentSupport themeUi={true} variant={true}/>
+
+<ThemeUIVariantGroup name="none" defaultStylesName={false}/>
+
+<Props of={Box} />
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Box p={4} color="white" bg="primary">
+      Hello World
+    </Box>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+     <Box sx={{color: 'info'}} variant="text.display1">
+       Hello World
+     </Box>
+  </Story>
+</Preview>

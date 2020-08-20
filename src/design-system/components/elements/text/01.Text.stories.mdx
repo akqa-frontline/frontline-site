@@ -1,0 +1,71 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Text } from '@/design-system/components/elements/text/Text';
+
+<Meta
+  title="Elements/Text"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Text
+
+<Preview>
+  <Story name="Default">
+    <Text>Default</Text>
+  </Story>
+</Preview>
+
+### Text Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="text" defaultStylesName="styles.p"/>
+
+<Props of={Text} />
+
+# As prose
+
+<Preview>
+  <Story name="As prose">
+    <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi culpa esse excepturi impedit laborum nemo optio rem repellat? Adipisci hic labore laborum quae? Architecto distinctio dolor eligendi inventore laboriosam omnis optio placeat reiciendis similique ullam. Accusantium commodi consequuntur eligendi expedita explicabo, impedit libero, magnam maxime nam nemo neque pariatur, possimus praesentium quae quam quis sapiente ut velit veritatis vero.</Text>
+    <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi culpa esse excepturi impedit laborum nemo optio rem repellat? Adipisci hic labore laborum quae? Architecto distinctio dolor eligendi inventore laboriosam omnis optio placeat reiciendis similique ullam. Accusantium commodi consequuntur eligendi expedita explicabo, impedit libero, magnam maxime nam nemo neque pariatur, possimus praesentium quae quam quis sapiente ut velit veritatis vero.</Text>
+    <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi culpa esse excepturi impedit laborum nemo optio rem repellat? Adipisci hic labore laborum quae? Architecto distinctio dolor eligendi inventore laboriosam omnis optio placeat reiciendis similique ullam. Accusantium commodi consequuntur eligendi expedita explicabo, impedit libero, magnam maxime nam nemo neque pariatur, possimus praesentium quae quam quis sapiente ut velit veritatis vero.</Text>
+    <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi culpa esse excepturi impedit laborum nemo optio rem repellat? Adipisci hic labore laborum quae? Architecto distinctio dolor eligendi inventore laboriosam omnis optio placeat reiciendis similique ullam. Accusantium commodi consequuntur eligendi expedita explicabo, impedit libero, magnam maxime nam nemo neque pariatur, possimus praesentium quae quam quis sapiente ut velit veritatis vero.</Text>
+    <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi culpa esse excepturi impedit laborum nemo optio rem repellat? Adipisci hic labore laborum quae? Architecto distinctio dolor eligendi inventore laboriosam omnis optio placeat reiciendis similique ullam. Accusantium commodi consequuntur eligendi expedita explicabo, impedit libero, magnam maxime nam nemo neque pariatur, possimus praesentium quae quam quis sapiente ut velit veritatis vero.</Text>
+  </Story>
+</Preview>
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Text color="primary" p={2}>Look at me!</Text>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Text sx={{padding: 4, color: 'red.6'}}>Look at me!</Text>
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Text variant="display2">Look at me!</Text>
+  </Story>
+</Preview>

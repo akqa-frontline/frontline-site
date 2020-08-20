@@ -1,4 +1,7 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["import-glob-array"]
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    "import-glob-array"
+  ]
 }

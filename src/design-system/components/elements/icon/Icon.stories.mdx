@@ -1,0 +1,81 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import {Button} from '@/design-system/components/elements/button/Button';
+import {Icon} from "@/design-system/components/elements/icon/Icon";
+import {ReactComponent as ActivityIcon} from "@/design-system/icons/source/activity.svg";
+
+<Meta
+  title="Elements/Icon"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Icon
+
+<Preview>
+  <Story name="default">
+    <Icon>
+      <ActivityIcon/>
+    </Icon>
+  </Story>
+</Preview>
+
+### Icon Props
+
+<ComponentSupport themeUi={true} variant={false}/>
+
+<ThemeUIVariantGroup name={false} defaultStylesName={false}/>
+
+<Props of={Icon} />
+
+# Size
+
+<Preview>
+  <Story name="Custom size">
+    <Icon size={[5, 10]}>
+      <ActivityIcon/>
+    </Icon>
+  </Story>
+</Preview>
+
+# In a Button
+
+<Preview>
+  <Story name="In a Button">
+    <Button>
+      Show my activity
+      <Icon sx={{ml: 2}}>
+        <ActivityIcon/>
+      </Icon>
+    </Button>
+  </Story>
+</Preview>
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Icon color="secondary" p={4}>
+      <ActivityIcon/>
+    </Icon>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Icon sx={{color: 'green.6'}}>
+      <ActivityIcon/>
+    </Icon>
+  </Story>
+</Preview>

@@ -1,0 +1,79 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Label } from '@/design-system/components/elements/forms/label/Label';
+import { Checkbox } from '@/design-system/components/elements/forms/checkbox/Checkbox';
+
+<Meta
+  title="Elements/Forms/Checkbox"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Checkbox
+
+<Preview>
+  <Story name="Default">
+    <Label>
+      <Checkbox
+        defaultChecked={true}
+      />
+    </Label>
+  </Story>
+</Preview>
+
+### Checkbox Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="checkbox" defaultStylesName={false}/>
+
+<Props of={Checkbox} />
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Label>
+      <Checkbox
+        color="orange.3"
+        defaultChecked={true}
+      />
+    </Label>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Label>
+      <Checkbox
+        sx={{color: 'blue.4'}}
+        defaultChecked={true}
+      />
+    </Label>
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Label>
+      <Checkbox
+        variant="small"
+        defaultChecked={true}
+      />
+    </Label>
+  </Story>
+</Preview>

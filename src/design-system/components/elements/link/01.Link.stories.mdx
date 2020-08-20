@@ -1,0 +1,59 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Link } from '@/design-system/components/elements/link/Link';
+
+<Meta
+  title="Elements/Link"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Link
+
+<Preview>
+  <Story name="Default">
+    <Link>Default</Link>
+  </Story>
+</Preview>
+
+### Link Props
+
+<ComponentSupport/>
+
+<ThemeUIVariantGroup name="links" defaultStylesName="styles.a"/>
+
+<Props of={Link} />
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Link color="primary" p={4}>Look at me!</Link>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Link sx={{padding: 4, color: 'red.6'}}>Look at me!</Link>
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Link variant="nav">Look at me!</Link>
+  </Story>
+</Preview>

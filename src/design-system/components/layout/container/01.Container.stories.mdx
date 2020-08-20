@@ -1,0 +1,41 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Container } from '@/design-system/components/layout/container/Container';
+
+<Meta
+  title="Layout/Container"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Container
+
+Centered, max-width layout component
+
+<Preview>
+  <Story name="Default">
+    <Container
+      p={4}
+      bg='muted'>
+      Centered container
+    </Container>
+  </Story>
+</Preview>
+
+### Container Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="layout" defaultStylesName="container"/>
+
+<Props of={Container} />

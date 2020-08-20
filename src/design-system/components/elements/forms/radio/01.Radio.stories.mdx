@@ -1,0 +1,122 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Radio } from '@/design-system/components/elements/forms/radio/Radio';
+import { Label } from '@/design-system/components/elements/forms/label/Label';
+
+<Meta
+  title="Elements/Forms/Radio"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Radio
+
+<Preview>
+  <Story name="Default">
+    <Label>
+      <Radio
+        name='dark-mode'
+        value='true'
+        defaultChecked={true}
+      />
+      Dark Mode
+    </Label>
+    <Label>
+      <Radio
+        name='dark-mode'
+        value='false'
+      />
+      Light Mode
+    </Label>
+  </Story>
+</Preview>
+
+### Radio Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="radio" defaultStylesName={false}/>
+
+<Props of={Radio} />
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Label>
+      <Radio
+        name='dark-mode-a'
+        value='true'
+        defaultChecked={true}
+        color="red.5"
+      />
+      Dark Mode
+    </Label>
+    <Label>
+      <Radio
+        name='dark-mode-a'
+        value='false'
+        color="green.5"
+      />
+      Light Mode
+    </Label>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Label>
+      <Radio
+        name='dark-mode-b'
+        value='true'
+        defaultChecked={true}
+        sx={{color: 'secondary'}}
+      />
+      Dark Mode
+    </Label>
+    <Label>
+      <Radio
+        name='dark-mode-b'
+        value='false'
+        sx={{color: 'warning'}}
+      />
+      Light Mode
+    </Label>
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Label>
+      <Radio
+        name='dark-mode-c'
+        value='true'
+        defaultChecked={true}
+        variant="small"
+      />
+      Dark Mode
+    </Label>
+    <Label>
+      <Radio
+        name='dark-mode-c'
+        value='false'
+        variant="small"
+      />
+      Light Mode
+    </Label>
+  </Story>
+</Preview>

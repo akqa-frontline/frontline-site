@@ -1,0 +1,45 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Flex } from '@/design-system/components/layout/flex/Flex';
+import { Box } from '@/design-system/components/elements/box/Box';
+
+<Meta
+  title="Layout/Flex"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Flex
+
+Use the Flex component to create flexbox layouts.
+
+<Preview>
+  <Story name="Default">
+    <Flex>
+      <Box p={2} bg='primary' sx={{ flex: '1 1 auto' }}>
+        Flex
+      </Box>
+      <Box p={2} bg='muted'>
+        Box
+      </Box>
+    </Flex>
+  </Story>
+</Preview>
+
+### Flex Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="images" defaultStylesName="styles.img"/>
+
+<Props of={Flex} />

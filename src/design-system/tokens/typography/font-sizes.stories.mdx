@@ -1,4 +1,6 @@
-import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import {FontSizes} from '../../../../.storybook/components/FontSizes';
 
 import theme from '@/design-system/theme-ui.theme.ts';
 
@@ -14,7 +16,6 @@ import theme from '@/design-system/theme-ui.theme.ts';
 
 All font-sizes are responsive over 1 breakpoint.
 
-<Typeset
-  fontFamily={theme.fonts.body}
+<FontSizes
   fontSizes={theme.fontSizes}
 />

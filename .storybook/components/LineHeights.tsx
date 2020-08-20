@@ -1,17 +1,9 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { styled } from '@storybook/theming';
 import { withReset } from '@storybook/components/dist/typography/shared';
 import { getBlockBackgroundStyle } from '@storybook/components/dist/blocks/BlockBackgroundStyles';
-import { transparentize } from 'polished';
-
-const Label = styled.div<{}>(({ theme }) => ({
-  marginRight: 30,
-  fontSize: `${theme.typography.size.s1}px`,
-  color:
-    theme.base === 'light'
-      ? transparentize(0.4, theme.color.defaultText)
-      : transparentize(0.6, theme.color.defaultText),
-}));
+import { Label, MutedLabel } from './shared/Label';
+import { LabelBox } from './shared/LabelBox';
 
 const Sample = styled.div({
   overflowWrap: 'anywhere',
@@ -23,7 +15,8 @@ const TypeSpecimen = styled.div<{}>(({ theme }) => ({
   padding: '30px 20px',
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'baseline',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   '&:not(:last-child)': { marginBottom: '1rem' },
 }));
 
@@ -45,7 +38,11 @@ export const LineHeights: FunctionComponent<LineHeightsProps> = ({
     <Wrapper {...props} className="docblock-typeset">
       {Object.keys(lineHeights).map(lhKey => (
         <TypeSpecimen key={lhKey}>
-          <Label>{lhKey}</Label>
+          <LabelBox>
+            <Label>name: {lhKey}</Label>
+            <MutedLabel>value: {lineHeights[lhKey]}</MutedLabel>
+          </LabelBox>
+
           <Sample
             style={{
               fontFamily,

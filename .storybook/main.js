@@ -4,6 +4,14 @@ const {
 
 const path = require('path');
 
+const propsDenyList = ['__themeKey', '__css'];
+
+const propsAllowList = [
+  'sx',
+  'as',
+  'variant',
+];
+
 module.exports = {
   stories: [
     '../src/design-system/**/*.stories.tsx',
@@ -17,12 +25,33 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-a11y/register',
   ],
+  typescript: {
+    reactDocgenTypescriptOptions: {
+      propFilter: (prop) => {
+        if (!!prop.parent) {
+          // Allow some props from the "outside" to be documented
+          if (propsAllowList.includes(prop.name) || propsAllowList.includes(prop.parent.name)) {
+            return true;
+          } if (propsDenyList.includes(prop.name) || propsDenyList.includes(prop.parent.name)) {
+            return false;
+          } else {
+            return !/node_modules/.test(prop.parent.fileName);
+          }
+        }
+
+        return (
+          // should have a description and not be in the props deny list
+          prop.description && !propsDenyList.includes(prop.name)
+        )
+      },
+    }
+  },
   webpackFinal: async config => {
     config.resolve = {
       ...config.resolve,
       extensions: ['.ts', '.tsx', '.js', '.mdx', '.md'],
       alias: {
-        // need to configure Storybook Webpack alias, this is done automagically by Next via tsconfig - but not by Storybook
+        // need to configure Storybook Webpack alias, this is done automagically by Next via tsconfig - but not by Storybook GLOVES IRON, RING - HAT LEATHER - DAGGER > T3     -
         '@/design-system': path.resolve(__dirname, '../src/design-system'),
         '@/components': path.resolve(__dirname, '../src/components'),
       },

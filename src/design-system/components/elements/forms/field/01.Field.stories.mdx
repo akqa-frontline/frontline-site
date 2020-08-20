@@ -1,0 +1,79 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import ExternalLibraryLink from "../../../../../../.storybook/components/ExternalLibraryLink";
+import ComponentSupport from "../../../../../../.storybook/components/ComponentSupport";
+import ThemeUIVariantGroup from "../../../../../../.storybook/components/Theme-UI-VariantGroup";
+
+import ThemeUIRenderer from "@/design-system/Theme-UI-renderer";
+
+import { Field } from "@/design-system/components/elements/forms/field/Field";
+
+<Meta
+  title="Elements/Forms/Field"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Field
+
+<Preview>
+  <Story name="Default">
+    <Field
+      label="Email"
+      name="email"
+      defaultValue=""
+    />
+  </Story>
+</Preview>
+
+### Field Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="field" defaultStylesName={false}/>
+
+<Props of={Field} />
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Field
+      color="primary"
+      p={2}
+      label="Email"
+      name="email"
+      defaultValue=""
+    />
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Field
+      sx={{padding: 4, color: "red.6"}}
+      label="Email"
+      name="email"
+      defaultValue=""
+    />
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Field
+      variant="inline"
+      label="Email"
+      name="email"
+      defaultValue=""
+    />
+  </Story>
+</Preview>

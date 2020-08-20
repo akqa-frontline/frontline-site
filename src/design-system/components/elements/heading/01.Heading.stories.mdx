@@ -1,0 +1,137 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Heading } from '@/design-system/components/elements/heading/Heading';
+
+<Meta
+  title="Elements/Headings"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Heading
+
+By default `<Heading/>` is rendered as a `h2` heading element to prevent SEO issues with too many `h1`.
+
+You can set the heading level using the `as` prop.
+
+<Preview>
+  <Story name="Default">
+    <Heading>Default</Heading>
+  </Story>
+</Preview>
+
+### Text Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="text" defaultStylesName="styles.hX"/>
+
+<Props of={Heading} />
+
+# Heading 1
+
+<Preview>
+  <Story name="Heading 1">
+    <Heading as="h1">Text 1</Heading>
+  </Story>
+</Preview>
+
+# Text 2
+
+<Preview>
+  <Story name="Heading 2">
+    <Heading as="h2">Text 2</Heading>
+  </Story>
+</Preview>
+
+# Text 3
+
+<Preview>
+  <Story name="Heading 3">
+    <Heading as="h3">Text 3</Heading>
+  </Story>
+</Preview>
+
+# Text 4
+
+<Preview>
+  <Story name="Heading 4">
+    <Heading as="h4">Text 4</Heading>
+  </Story>
+</Preview>
+
+# Text 5
+
+<Preview>
+  <Story name="Heading 5">
+    <Heading as="h5">Text 5</Heading>
+  </Story>
+</Preview>
+
+# Text 6
+
+<Preview>
+  <Story name="Heading 6">
+    <Heading as="h6">Text 6</Heading>
+  </Story>
+</Preview>
+
+# Display 1
+
+<Preview>
+  <Story name="Display 1">
+    <Heading variant="display1">Display 1</Heading>
+  </Story>
+</Preview>
+
+# Display 2
+
+<Preview>
+  <Story name="Display 2">
+    <Heading variant="display2">Display 2</Heading>
+  </Story>
+</Preview>
+
+# Using `variant` and `as` props together
+
+<Preview>
+  <Story name="Using `variant` and `as` props together">
+    <Heading variant="display2" as="h6">Im a H6 display2</Heading>
+  </Story>
+</Preview>
+
+# With Anchor
+
+By adding an `id` prop to a `<Heading/>`, a child `<Link/>` will be rendered with a document fragment link.
+
+<Preview>
+  <Story name="With Anchor">
+    <Heading id="withAnchor">With Anchor</Heading>
+  </Story>
+</Preview>
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Heading color="primary" p={4}>Look at me!</Heading>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Heading sx={{padding: 4, color: 'red.6'}}>Look at me!</Heading>
+  </Story>
+</Preview>

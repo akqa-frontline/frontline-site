@@ -1,0 +1,82 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Grid } from '@/design-system/components/layout/grid/Grid';
+import { Box } from '@/design-system/components/elements/box/Box';
+
+<Meta
+  title="Layout/Grid"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Grid
+
+CSS grid layout component to arrange direct child elements in a tiled grid layout.
+
+<Preview>
+  <Story name="Default">
+    <Grid width={[ 128, null, 192 ]}>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+    </Grid>
+  </Story>
+</Preview>
+
+### Grid Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="grid"/>
+
+<Props of={Grid} />
+
+# Using equally sized columns
+
+<Preview>
+  <Story name="Using equally sized columns">
+    <Grid columns={[ 2, null, 4 ]}>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+    </Grid>
+  </Story>
+</Preview>
+
+# Using grid syntax
+
+<Preview>
+  <Story name="Using grid syntax">
+    <Grid columns={[2, '1fr 2fr']}>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+    </Grid>
+  </Story>
+</Preview>
+
+# Using gap
+
+<Preview>
+  <Story name="Using gap">
+    <Grid gap={4} columns={2}>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+      <Box bg='primary'>Box</Box>
+      <Box bg='muted'>Box</Box>
+    </Grid>
+  </Story>
+</Preview>

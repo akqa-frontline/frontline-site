@@ -1,0 +1,193 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { Input } from '@/design-system/components/elements/forms/input/Input';
+import { Button } from '@/design-system/components/elements/button/Button';
+import { Icon } from '@/design-system/components/elements/icon/Icon';
+import {ReactComponent as SearchIcon} from "@/design-system/icons/source/search.svg";
+import {ReactComponent as ClearIcon} from "@/design-system/icons/source/x.svg";
+
+<Meta
+  title="Elements/Forms/Input"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# Input
+
+<Preview>
+  <Story name="Default">
+    <Input defaultValue="Hello"/>
+  </Story>
+</Preview>
+
+### Input Props
+
+<ComponentSupport themeUi={true}/>
+
+<ThemeUIVariantGroup name="inputs" defaultStylesName={false}/>
+
+<Props of={Input} />
+
+# Input types
+
+### `number`
+
+<Preview>
+  <Story name="type - number">
+    <Input defaultValue={9999} type="number" />
+  </Story>
+</Preview>
+
+### `tel`
+
+<Preview>
+  <Story name="type - tel">
+    <Input defaultValue={12345678} type="tel" />
+  </Story>
+</Preview>
+
+### `email`
+
+<Preview>
+  <Story name="type - email">
+    <Input defaultValue="john.doe@akqa.com" type="email" />
+  </Story>
+</Preview>
+
+### `password`
+
+<Preview>
+  <Story name="type - password">
+    <Input defaultValue="12345678" type="password" />
+  </Story>
+</Preview>
+
+### `search`
+
+<Preview>
+  <Story name="type - search">
+    <Input defaultValue="When is React Concurrent mode SSR compatible?" type="search" />
+  </Story>
+</Preview>
+
+### `url`
+
+<Preview>
+  <Story name="type - url">
+    <Input defaultValue="https://www.akqa.com" type="url" />
+  </Story>
+</Preview>
+
+### `date`
+
+<Preview>
+  <Story name="type - date">
+    <Input defaultValue="2020-01-01" type="date" />
+  </Story>
+</Preview>
+
+### `datetime-local`
+
+<Preview>
+  <Story name="type - datetime-local">
+    <Input defaultValue="2020-01-01T12:00" type="datetime-local" />
+  </Story>
+</Preview>
+
+### `month`
+
+<Preview>
+  <Story name="type - month">
+    <Input defaultValue="2020-01" type="month" />
+  </Story>
+</Preview>
+
+### `time`
+
+<Preview>
+  <Story name="type - time">
+    <Input defaultValue="12:00" type="time" />
+  </Story>
+</Preview>
+
+### `week`
+
+<Preview>
+  <Story name="type - week">
+    <Input defaultValue="2020-W33" type="week" />
+  </Story>
+</Preview>
+
+# Using theme-ui props
+
+<Preview>
+  <Story name="Using theme-ui props">
+    <Input color="primary" p={2} defaultValue={1} type="number"/>
+  </Story>
+</Preview>
+
+# Using the SX prop
+
+<Preview>
+  <Story name="Using the SX prop">
+    <Input sx={{padding: 4, color: 'red.6'}} value="Hello" onChange={() => {}} />
+  </Story>
+</Preview>
+
+# Using the variant prop
+
+<Preview>
+  <Story name="Using the variant prop">
+    <Input variant="shadow" type="text" defaultValue="Hi"/>
+  </Story>
+</Preview>
+
+# Using the prepend prop
+
+<Preview>
+  <Story name="Using the prepend prop">
+    <Input prepend={<Button><Icon><SearchIcon/></Icon></Button>} readOnly/>
+  </Story>
+</Preview>
+
+# Using the append prop
+
+<Preview>
+  <Story name="Using the append prop">
+    <Input append={<Icon px={3}><ClearIcon/></Icon>} readOnly/>
+  </Story>
+</Preview>
+
+# Using the prepend and append prop together
+
+<Preview>
+  <Story name="Using the prepend and append prop together">
+    <Input prepend={<Button><Icon><SearchIcon/></Icon></Button>} append={<Icon px={3} color="primary"><ClearIcon/></Icon>} readOnly/>
+  </Story>
+</Preview>
+
+# Read Only
+
+<Preview>
+  <Story name="Read Only">
+    <Input readOnly/>
+  </Story>
+</Preview>
+
+# Disabled
+
+<Preview>
+  <Story name="Disabled">
+    <Input disabled/>
+  </Story>
+</Preview>

@@ -1,0 +1,34 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import {SVG} from "@/design-system/components/elements/svg/SVG";
+
+<Meta
+  title="Elements/SVG"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# SVG
+
+<Preview>
+  <Story name="default">
+    <SVG/>
+  </Story>
+</Preview>
+
+### Box Props
+
+<ComponentSupport themeUi={true} variant={true}/>
+
+<ThemeUIVariantGroup name="none" defaultStylesName={false}/>
+
+<Props of={SVG} />

@@ -1,0 +1,63 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import ExternalLibraryLink from '../../../../../.storybook/components/ExternalLibraryLink';
+import ComponentSupport from '../../../../../.storybook/components/ComponentSupport';
+import ThemeUIVariantGroup from '../../../../../.storybook/components/Theme-UI-VariantGroup';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+
+import { AspectRatio } from '@/design-system/components/elements/aspect-ratio/AspectRatio';
+import { Heading } from '@/design-system/components/elements/heading/Heading';
+import { Image } from '@/design-system/components/elements/image/Image';
+
+<Meta
+  title="Elements/AspectRatio"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer>{storyFn()}</ThemeUIRenderer>
+  ]}
+  parameters={{
+    controls: { hideNoControlsWarning: true }
+  }}
+/>
+
+# AspectRatio
+
+<Preview>
+  <Story name="Default">
+    <AspectRatio
+      ratio={[1/1, 16/9]}
+      sx={{
+        p: 4,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'background',
+        bg: 'primary',
+      }}>
+      <Heading>
+        Aspect Ratio
+      </Heading>
+    </AspectRatio>
+  </Story>
+</Preview>
+
+### AspectRatio Props
+
+<ComponentSupport themeUi={true} variant={false} />
+
+<Props of={AspectRatio} />
+
+# Using with an image
+
+<Preview>
+  <Story name="Using with an image">
+    <AspectRatio ratio={16/9}>
+      <Image
+        src="https://images.unsplash.com/photo-1520222984843-df35ebc0f24d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9"
+        sx={{
+          objectFit: 'cover'
+        }}
+      />
+    </AspectRatio>
+  </Story>
+</Preview>

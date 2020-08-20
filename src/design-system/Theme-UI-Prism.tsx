@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import React, { ComponentProps } from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import { Styled } from 'theme-ui';
@@ -99,7 +101,7 @@ export default function ThemeUIPrism({
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const tokensWithoutHighlightComments = findStartAndEndHighlights(
-          tokens,
+          tokens
         );
         return (
           // eslint-disable-next-line react/jsx-pascal-case

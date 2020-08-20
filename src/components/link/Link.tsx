@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { ComponentProps } from 'react';
 
-export interface LinkProps
-  extends NextLinkProps,
-    Omit<ComponentProps<'a'>, keyof NextLinkProps> {}
+import {
+  Link as UILink,
+  LinkProps as UILinkProps,
+} from '@/design-system/components/elements/link/Link';
+import { Assign } from '@/design-system/types';
+
+export interface LinkProps extends Assign<NextLinkProps, UILinkProps> {
+  children: ReactNode;
+}
 
 /**
  * Enhanced Next Link
@@ -27,11 +32,11 @@ export const Link = ({
     replace={replace}
     scroll={scroll}
     shallow={shallow}
-    passHref={passHref}
+    passHref={true}
     prefetch={prefetch}
   >
     {/* href is passed by NextLink */}
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */}
-    <a {...rest} />
+    <UILink {...rest} />
   </NextLink>
 );

@@ -1,0 +1,76 @@
+import { Meta, Story, Stories, Preview, Description } from '@storybook/addon-docs/blocks';
+
+import ThemeUIRenderer from '@/design-system/Theme-UI-renderer';
+import theme from '@/design-system/theme-ui.theme';
+import ThemeUIPrism from '@/design-system/Theme-UI-Prism';
+import ExternalLibraryLink from "../../../../.storybook/components/ExternalLibraryLink";
+
+import MDXCodeJSX from "../../../../.storybook/mdx-components/syntax-highlighting/code-jsx.mdx";
+import MDXCodeWithHighlight from "../../../../.storybook/mdx-components/syntax-highlighting/code-with-highlight.mdx";
+
+<Meta
+  title="Theme UI/Prism"
+  decorators={[
+    // wrap these stories in the Theme UI provider
+    (storyFn) => <ThemeUIRenderer theme={theme}>{storyFn()}</ThemeUIRenderer>
+  ]}
+/>
+
+# Prism syntax highlighting
+
+An extended version of the `@theme-ui/prism` renderer is available that adds line-highlighting and line numbers to the code blocks.
+
+The component uses `prism-react-renderer` behind the scenes.
+
+<Preview>
+  <Story name="jsx">
+    <MDXCodeJSX/>
+  </Story>
+</Preview>
+
+### With highlighting
+
+<Preview>
+  <Story name="with highlighted line">
+    <MDXCodeWithHighlight/>
+  </Story>
+</Preview>
+
+### Supported languages
+
+The following languages are supported by `prism-react-renderer` by default:
+
+- `markup`
+- `bash`
+- `clike`
+- `c`
+- `cpp`
+- `css`
+- `"css-extras"`
+- `javascript`
+- `jsx`
+- `"js-extras"`
+- `coffeescript`
+- `diff`
+- `git`
+- `go`
+- `graphql`
+- `handlebars`
+- `json`
+- `less`
+- `makefile`
+- `markdown`
+- `objectivec`
+- `ocaml`
+- `python`
+- `reason`
+- `sass`
+- `scss`
+- `sql`
+- `stylus`
+- `tsx`
+- `typescript`
+- `wasm`
+- `yaml`
+
+To add more languages, refer to the <ExternalLibraryLink title="prism-react-renderer FAQ" href="https://github.com/FormidableLabs/prism-react-renderer#faq"/>
