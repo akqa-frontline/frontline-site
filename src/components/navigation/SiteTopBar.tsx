@@ -20,7 +20,7 @@ const SiteTopBar = () => {
         Docs
       </InternalLink>
       <ExternalLink
-        href="https://github.com/akqa-denmark/frontline"
+        href="https://github.com/akqa-frontline/frontline"
         variant="nav"
       >
         Github
