@@ -5,8 +5,8 @@ import { Box } from '@/design-system/components/elements/box/Box';
 import { FunctionComponent, ReactNode } from 'react';
 import { Input } from '@/design-system/components/elements/forms/input/Input';
 import { Icon } from '@/design-system/components/elements/icon/Icon';
-import { ReactComponent as SearchIcon } from '@/design-system/icons/source/search.svg';
-import { Link } from '@/components/link/Link';
+import SearchIcon from '@/design-system/icons/source/search.svg';
+// import { Link } from '@/components/link/Link';
 
 export interface TopBarProps {
   children: ReactNode;

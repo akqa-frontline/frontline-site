@@ -8,8 +8,8 @@ import {
 } from '@reach/accordion';
 
 import { Icon } from '@/design-system/components/elements/icon/Icon';
-import { ReactComponent as ChevronRight } from '@/design-system/icons/source/chevron-right.svg';
-import { ReactComponent as ChevronDown } from '@/design-system/icons/source/chevron-down.svg';
+import ChevronRight from '@/design-system/icons/source/chevron-right.svg';
+import ChevronDown from '@/design-system/icons/source/chevron-down.svg';
 
 export interface AccordionButtonProps extends ReachAccordionButtonProps {
   /**
