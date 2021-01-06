@@ -8,8 +8,8 @@ import { DocsTableOfContents } from '@/components/navigation/DocsTableOfContents
 /**
  * Helper Component used by next-mdx-enhanced
  */
-function Docs({ tableOfContents }) {
-  return ({ children }) => (
+function Docs({ children, frontMatter: { tableOfContents } }) {
+  return (
     <WithSidesLayout
       left={<DocsSidebar />}
       top={<SiteTopBar />}
