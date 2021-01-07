@@ -19,10 +19,10 @@ const BaseIconStyles: SxStyleProp = {
   display: 'inline-flex',
   verticalAlign: 'middle',
   // lineHeight: '1',
-  '> svg': {
-    width: '1em',
-    height: '1em',
-  },
+  // '> svg': {
+  //   width: '1em',
+  //   height: '1em',
+  // },
 };
 
 const Icon: ForwardRef<HTMLElement, IconProps> = forwardRef(

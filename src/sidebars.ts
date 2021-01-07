@@ -18,6 +18,46 @@ export const sidebars = {
           label: 'Configuration',
           slug: '/docs/getting-started/configuration',
           children: [
+            {
+              label: 'js-config-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/js-config-webpack-plugin',
+            },
+            {
+              label: 'scss-config-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/scss-config-webpack-plugin',
+            },
+            {
+              label: 'font-config-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/font-config-webpack-plugin',
+            },
+            {
+              label: 'image-config-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/image-config-webpack-plugin',
+            },
+            {
+              label: 'asset-config-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/asset-config-webpack-plugin',
+            },
+            {
+              label: 'generate-injection-html-webpack-plugin',
+              slug:
+                '/docs/getting-started/configuration/generate-injection-html-webpack-plugin',
+            },
+            {
+              label: 'eslint-config-frontline',
+              slug:
+                '/docs/getting-started/configuration/eslint-config-frontline',
+            },
+            {
+              label: 'stylelint-config-frontline',
+              slug:
+                '/docs/getting-started/configuration/stylelint-config-frontline',
+            },
             // {
             //   label: 'Frontline Webpack Config',
             //   slug: '/docs/getting-started/configuration/frontline-webpack',
@@ -31,28 +71,22 @@ export const sidebars = {
       slug: '/docs/development',
       children: [
         {
-          label: 'Development',
-          slug: '/docs/development',
+          label: 'CMS',
+          slug: '/docs/development/cms',
           children: [
             {
-              label: 'CMS',
-              slug: '/docs/development/cms',
-              children: [
-                {
-                  label: 'Asset Manifest',
-                  slug: '/docs/development/cms/asset-manifest',
-                },
-              ],
-            },
-            // {
-            //   label: 'Webpack Configuration',
-            //   slug: '/docs/development/webpack-config',
-            // },
-            {
-              label: 'Environment Variables',
-              slug: '/docs/development/environment-variables',
+              label: 'Asset Manifest',
+              slug: '/docs/development/cms/asset-manifest',
             },
           ],
+        },
+        // {
+        //   label: 'Webpack Configuration',
+        //   slug: '/docs/development/webpack-config',
+        // },
+        {
+          label: 'Environment Variables',
+          slug: '/docs/development/environment-variables',
         },
       ],
     },

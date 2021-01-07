@@ -1,5 +1,34 @@
 ---
 title: 'font-config-webpack-plugin'
+layout: 'package'
+package: '@akqa-frontline/asset-config-webpack-plugin'
 ---
 
-font-config-webpack-plugin
+Font configuration for webpack.
+
+## What does it do
+This package lets you use font assets in your JS and (S)CSS files.
+
+## Install
+Install this package and its peer dependencies:
+```
+npm install --save-dev --save-exact @akqa-frontline/font-config-webpack-plugin
+npm install --save-dev --save-exact webpack
+```
+
+## Usage
+Add the plugin to your webpack configuration
+```javascript
+// webpack.config.js
+
+const {FrontlineFontConfigWebpackPlugin} = require("@akqa-frontline/font-config-webpack-plugin")
+
+module.exports = {
+    plugins: [
+        new FrontlineFontConfigWebpackPlugin()
+    ]
+}
+```
+
+Take a look at [webpack-config](/getting-started/configuration/webpack-config) for instructions on a more complete Frontline webpack configuration.
+

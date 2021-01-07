@@ -1,5 +1,35 @@
 ---
 title: 'asset-config-webpack-plugin'
+layout: 'package'
+package: '@akqa-frontline/asset-config-webpack-plugin'
 ---
 
-asset-config-webpack-plugin
+Static assets configuration for webpack.
+
+## What does it do
+This package does not do much currently.
+
+When creating a production build, it will copy all files except HTML files from the public folder to the build output folder.
+
+## Install
+Install this package and its peer dependencies:
+```
+npm install --save-dev --save-exact @akqa-frontline/asset-config-webpack-plugin
+npm install --save-dev --save-exact webpack
+```
+
+## Usage
+Add the plugin to your webpack configuration
+```javascript
+// webpack.config.js
+
+const {FrontlineAssetConfigWebpackPlugin} = require("@akqa-frontline/asset-config-webpack-plugin")
+
+module.exports = {
+    plugins: [
+        new FrontlineAssetConfigWebpackPlugin()
+    ]
+}
+```
+
+Take a look at [webpack-config](/getting-started/configuration/webpack-config) for instructions on a more complete Frontline webpack configuration.

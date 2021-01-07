@@ -1,5 +1,37 @@
 ---
 title: 'image-config-webpack-plugin'
+layout: 'package'
+package: '@akqa-frontline/image-config-webpack-plugin'
 ---
 
-image-config-webpack-plugin
+Image configuration for webpack.
+
+## What does it do
+This package lets you use image assets in your JS and (S)CSS files.
+
+### Notable features
+- Inline SVG files
+- Base64 encodes images less than 10kb
+
+## Install
+Install this package and its peer dependencies:
+```
+npm install --save-dev --save-exact @akqa-frontline/image-config-webpack-plugin
+npm install --save-dev --save-exact webpack
+```
+
+### Usage
+Add the plugin to your webpack configuration
+```javascript
+// webpack.config.js
+
+const {FrontlineImageConfigWebpackPlugin} = require("@akqa-frontline/image-config-webpack-plugin")
+
+module.exports = {
+    plugins: [
+        new FrontlineImageConfigWebpackPlugin()
+    ]
+}
+```
+
+Take a look at [webpack-config](/getting-started/configuration/webpack-config) for instructions on a more complete Frontline webpack configuration.
