@@ -4,22 +4,21 @@ import { WithSidesLayout } from '@/design-system/layouts/WithSides';
 import { SiteTopBar } from '@/components/navigation/SiteTopBar';
 import { DocsSidebar } from '@/components/navigation/DocsSidebar';
 import { DocsTableOfContents } from '@/components/navigation/DocsTableOfContents';
-import { Heading } from '@/design-system/components/elements/heading/Heading';
-import Base from './base';
 
 /**
  * Helper Component used by next-mdx-enhanced
  */
-function Docs({ children, frontMatter }) {
-  const { title } = frontMatter;
+function Base({ children, frontMatter }) {
+  const { tableOfContents } = frontMatter;
   return (
-    <Base frontMatter={frontMatter}>
-      <>
-        <Heading as="h1">{title}</Heading>
-        {children}
-      </>
-    </Base>
+    <WithSidesLayout
+      left={<DocsSidebar />}
+      top={<SiteTopBar />}
+      right={<DocsTableOfContents tableOfContents={tableOfContents} />}
+    >
+      {children}
+    </WithSidesLayout>
   );
 }
 
-export default Docs;
+export default Base;
