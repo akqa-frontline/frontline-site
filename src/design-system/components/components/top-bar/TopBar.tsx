@@ -6,7 +6,7 @@ import { FunctionComponent, ReactNode } from 'react';
 import { Input } from '@/design-system/components/elements/forms/input/Input';
 import { Icon } from '@/design-system/components/elements/icon/Icon';
 import SearchIcon from '@/design-system/icons/source/search.svg';
-// import { Link } from '@/components/link/Link';
+import { Link } from '@/components/link/Link';
 
 export interface TopBarProps {
   children: ReactNode;
@@ -26,7 +26,9 @@ const TopBarStyle: SxStyleProp = {
 
 const TopBar: FunctionComponent = ({ children }) => (
   <Flex sx={{ ...TopBarStyle }}>
-    <Box sx={{ flex: '0 0 auto' }}>Frontline</Box>
+    <Box sx={{ flex: '0 0 auto' }}>
+      <Link href="/">Frontline</Link>
+    </Box>
     <Flex sx={{ flex: '0 0 auto', alignItems: 'center' }}>
       <Box>{children}</Box>
       <Box>
