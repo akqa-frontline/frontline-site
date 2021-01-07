@@ -164,6 +164,7 @@ const theme: Theme = {
     code: {
       ...nightOwl,
       fontFamily: typography.fonts.monospace,
+      overflowX: 'auto',
       '.highlight': {
         background: lighten(nightOwl.backgroundColor, 0.075),
         marginLeft: -3,

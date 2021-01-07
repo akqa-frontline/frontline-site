@@ -33,6 +33,7 @@ const BaseAccordionLinkStyles = {
   '& > a, & > a:hover, & > a:focus, & > a:active': {
     color: 'inherit',
     textDecoration: 'none',
+    width: '100%',
   },
 };
 
