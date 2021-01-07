@@ -18,10 +18,10 @@ export const sidebars = {
           label: 'Configuration',
           slug: '/docs/getting-started/configuration',
           children: [
-            {
-              label: 'Frontline Webpack Config',
-              slug: '/docs/getting-started/configuration/frontline-webpack',
-            },
+            // {
+            //   label: 'Frontline Webpack Config',
+            //   slug: '/docs/getting-started/configuration/frontline-webpack',
+            // },
           ],
         },
       ],
@@ -35,10 +35,34 @@ export const sidebars = {
           slug: '/docs/development',
           children: [
             {
-              label: 'Webpack Configuration',
-              slug: '/docs/development/webpack-config',
+              label: 'CMS',
+              slug: '/docs/development/cms',
+              children: [
+                {
+                  label: 'Asset Manifest',
+                  slug: '/docs/development/cms/asset-manifest',
+                },
+              ],
+            },
+            // {
+            //   label: 'Webpack Configuration',
+            //   slug: '/docs/development/webpack-config',
+            // },
+            {
+              label: 'Environment Variables',
+              slug: '/docs/development/environment-variables',
             },
           ],
+        },
+      ],
+    },
+    {
+      label: 'Guides',
+      slug: '/docs/guides',
+      children: [
+        {
+          label: 'Contributing',
+          slug: '/docs/guides/contributing',
         },
       ],
     },

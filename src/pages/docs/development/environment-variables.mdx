@@ -1,5 +1,42 @@
 ---
-title: 'environment-variables'
+title: 'Environment Variables'
+layout: 'docs'
 ---
 
-environment-variables
+## Examples
+
+The env variables in your `.env` file can be used directly in your HTML.
+This is great for things such as Google Analytics!
+
+- `FRONTLINE_GOOGLE_ANALYTICS_ID`
+- `FRONTLINE_API_KEY`
+- `FRONTLINE_FEATURE_TOGGLE`
+
+## Usage
+
+To define and use your own env variables, follow these steps:
+1. Create a `.env` file in the root of your project
+2. Write your env variables, they ***must*** be prefixed with `FRONTLINE` - example:
+```javascript
+FRONTLINE_API_KEY=apisftw
+```
+3. Access it:
+```javascript
+process.env.FRONTLINE_API_KEY
+```
+
+## Built-in variables
+
+- `NODE_ENV`: `"development" | "production"`
+- `PUBLIC_URL`
+
+There are also two built-in env variables, the `NODE_ENV` and the `PUBLIC_URL`
+Use `NODE_ENV` to help determine if you are running production code or not.
+Use `PUBLIC_URL` as a prefix for assets hosted in the public folder, always.
+
+Asset HTML example:
+<pre>
+  <code>
+    &lt;img src="&#37;PUBLIC_URL&#37;/images/dog.webp" /&gt;
+  </code>
+</pre>
