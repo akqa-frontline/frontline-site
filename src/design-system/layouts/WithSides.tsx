@@ -48,18 +48,19 @@ const ContentWrapperStyle: SxStyleProp = {
 const SharedSideWrapperStyle: SxStyleProp = {
   display: ['none', null, null, null, 'flex'],
   flexDirection: 'column',
-};
-
-const RightWrapperStyle: SxStyleProp = {
-  ...SharedSideWrapperStyle,
-};
-
-const LeftWrapperStyle: SxStyleProp = {
-  ...SharedSideWrapperStyle,
   height: `calc(100vh - ${theme.space['layoutTop']})`,
   top: theme.space['layoutTop'],
   overflowY: 'auto',
   position: 'sticky',
+};
+
+const RightWrapperStyle: SxStyleProp = {
+  ...SharedSideWrapperStyle,
+  paddingTop: 2,
+};
+
+const LeftWrapperStyle: SxStyleProp = {
+  ...SharedSideWrapperStyle,
   bg: 'light',
   padding: 2,
 };

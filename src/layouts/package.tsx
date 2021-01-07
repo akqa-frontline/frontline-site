@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { WithSidesLayout } from '@/design-system/layouts/WithSides';
 import { Heading } from '@/design-system/components/elements/heading/Heading';
 import { Version } from '@/components/version/Version';
 import PackageIcon from '@/design-system/icons/source/package.svg';

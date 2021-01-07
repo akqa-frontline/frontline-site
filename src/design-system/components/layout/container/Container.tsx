@@ -13,6 +13,7 @@ const BaseContainerStyle: SxStyleProp = {
   width: '100%',
   maxWidth: 'container',
   mx: 'auto',
+  padding: ['10px 20px', '20px 40px'],
 };
 
 const Container: ForwardRef<HTMLDivElement, ContainerProps> = forwardRef(
