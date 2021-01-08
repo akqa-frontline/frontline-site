@@ -3,8 +3,27 @@ title: 'Contributing'
 layout: 'docs'
 ---
 
-## Contributing to Frontline Docs
+## Docs
+Frontline Docs are written in MDX that lets you write JSX in Markdown documents.
+This can make the documents more engaging and easier for the reader to understand.
 
+You import a component and use it like you would in React.
+
+```mdx
+import { Demo } from '@/components/playground/Demo'
+
+<Demo />
+```
+
+This will result in
+
+import { Demo } from '@/components/playground/Demo'
+
+<Demo />
+
+<br /><br />
+
+## Contributing to Frontline Docs
 1. Become a member of the team. Ask Dennis to give you access to
 https://github.com/akqa-frontline
 
@@ -12,9 +31,9 @@ https://github.com/akqa-frontline
 
 3. Commit changes with `git commit` that uses commitizen to guide you to a fitting commit message
 
-4. Create a pull request so the Frontline tream members can review your changes
+4. Create a pull request so the Frontline team members can review your changes
 
 ## Contributing to Frontline
 
-- This guide is found in the Frontline repo: [`CONTRIBUTING.md`](https://github.com/akqa-frontline/frontline/blob/master/CONTRIBUTING.md)
-
+This guide is found in the Frontline repo:
+- [`CONTRIBUTING.md`](https://github.com/akqa-frontline/frontline/blob/master/CONTRIBUTING.md)

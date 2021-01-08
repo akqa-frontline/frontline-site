@@ -35,8 +35,6 @@ Use `NODE_ENV` to help determine if you are running production code or not.
 Use `PUBLIC_URL` as a prefix for assets hosted in the public folder, always.
 
 Asset HTML example:
-<pre>
-  <code>
-    &lt;img src="&#37;PUBLIC_URL&#37;/images/dog.webp" /&gt;
-  </code>
-</pre>
+```html
+  <img src="%PUBLIC_URL%/images/dog.webp" />
+```
