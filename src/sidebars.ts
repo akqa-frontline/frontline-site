@@ -19,6 +19,10 @@ export const sidebars = {
           slug: '/docs/getting-started/configuration',
           children: [
             {
+              label: 'webpack-config',
+              slug: '/docs/getting-started/configuration/webpack-config',
+            },
+            {
               label: 'js-config-webpack-plugin',
               slug:
                 '/docs/getting-started/configuration/js-config-webpack-plugin',
@@ -49,6 +53,10 @@ export const sidebars = {
                 '/docs/getting-started/configuration/generate-injection-html-webpack-plugin',
             },
             {
+              label: 'generator-frontline',
+              slug: '/docs/getting-started/configuration/generator-frontline',
+            },
+            {
               label: 'eslint-config-frontline',
               slug:
                 '/docs/getting-started/configuration/eslint-config-frontline',
@@ -58,10 +66,6 @@ export const sidebars = {
               slug:
                 '/docs/getting-started/configuration/stylelint-config-frontline',
             },
-            // {
-            //   label: 'Frontline Webpack Config',
-            //   slug: '/docs/getting-started/configuration/frontline-webpack',
-            // },
           ],
         },
       ],
