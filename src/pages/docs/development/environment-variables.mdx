@@ -27,14 +27,21 @@ process.env.FRONTLINE_API_KEY
 
 ## Built-in variables
 
-- `NODE_ENV`: `"development" | "production"`
+There are also two built-in env variables:
+- `NODE_ENV`
 - `PUBLIC_URL`
 
-There are also two built-in env variables, the `NODE_ENV` and the `PUBLIC_URL`
 Use `NODE_ENV` to help determine if you are running production code or not.
 Use `PUBLIC_URL` as a prefix for assets hosted in the public folder, always.
 
-Asset HTML example:
+## Asset HTML example
 ```html
   <img src="%PUBLIC_URL%/images/dog.webp" />
 ```
+
+## Live example
+This Frontline example prints the internal env variables.
+
+import { Embed } from '@/components/playground/Embed'
+
+<Embed id="env-qwj77" height="150px" />

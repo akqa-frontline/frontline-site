@@ -1,0 +1,57 @@
+---
+title: 'Lazy Loading'
+layout: 'docs'
+---
+
+Use `React.lazy` to dynamically import a component.
+Dynamic imports are a way of code-splitting so you don't request components until they are needed.
+
+## Lazy loaded default import
+```jsx
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+```
+
+## Lazy loaded named import
+There seems to be this workaround:
+```jsx
+const OtherComponent = React.lazy(
+  () => import('./OtherComponent').then(module => ({ default: module.OtherComponent }))
+);
+```
+
+But the React-safe way forces you to re-export a named export as the default export.
+```jsx
+export { OtherComponent as default } from "./OtherComponent";
+const OtherComponent = React.lazy(
+  () => import('./OtherComponent').then(module => ({ default: module.OtherComponent }))
+);
+```
+
+## Suspense
+The lazy loaded component should be rendered inside a `Suspense` component.
+The `Suspense` component allows you to display a loader until the component is ready.
+
+```jsx
+<Suspense fallback={<div>Loading...</div>}>
+  <OtherComponent />
+</Suspense>
+```
+## Error Boundaries
+If a component encounters an error or fails to load it will throw an error.
+An `Error Boundary` is able catch errors inside that boundary while the rest of the site is fully functional.
+
+The easiest way to get stated is by using the package `react-error-boundary`.
+
+```
+npm install --save react-error-boundary
+```
+
+Install it and follow [their guide](https://www.npmjs.com/package/react-error-boundary#usage) on how to use it.
+
+<br />
+
+## Examples
+
+import { Embed } from '@/components/playground/Embed'
+
+<Embed id="lazy-loading-rro6q" height="500px" />

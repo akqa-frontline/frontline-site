@@ -9,6 +9,10 @@ export const sidebars = {
           slug: '/docs/getting-started/flavours',
           children: [
             {
+              label: 'Single Page Application (SPA)',
+              slug: '/docs/getting-started/flavours/spa',
+            },
+            {
               label: 'For Content Management System',
               slug: '/docs/getting-started/flavours/cms',
             },
@@ -91,6 +95,10 @@ export const sidebars = {
         {
           label: 'Environment Variables',
           slug: '/docs/development/environment-variables',
+        },
+        {
+          label: 'Lazy Loading',
+          slug: '/docs/development/lazy-loading',
         },
       ],
     },
