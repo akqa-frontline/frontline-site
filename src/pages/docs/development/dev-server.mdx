@@ -1,5 +1,32 @@
 ---
-title: 'dev-server'
+title: 'Dev Server'
+layout: 'docs'
 ---
 
-dev-server
+## Change port
+You can change the port if the default port `8080` is being used by another service.
+
+```javascript
+// webpack.config.js
+
+// highlight-start
+const sharedWebpackConfig = {
+  devServer: {
+    port: 3000
+  }
+};
+// highlight-end
+
+const legacyWebpackConfig = FrontlineWebpackConfig("legacy", {
+  entry,
+  plugins: [],
+  ...sharedWebpackConfig // highlight-line
+});
+
+const modernWebpackConfig = FrontlineWebpackConfig("modern", {
+  entry,
+  plugins: [],
+  ...sharedWebpackConfig // highlight-line
+});
+```
+

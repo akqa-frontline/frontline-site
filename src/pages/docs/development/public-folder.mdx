@@ -1,5 +1,32 @@
 ---
-title: 'public-folder'
+title: 'Public Flder'
+layout: 'docs'
 ---
 
-public-folder
+Files in the public folder are copied to the build folder untouched.
+
+## Reference assets
+Import assets in Javascript.
+```
+import logo from './logo.png';
+```
+
+Use the [environment variable](/docs/development/environment-variables) `PUBLIC_URL` to reference assets in HTML.
+```html
+<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+```
+
+
+## Copy files on build
+You can copy files to the public and make them accessible from the root of the page with the package `copy-webpack-plugin`
+
+```js
+const CopyPlugin = require('copy-webpack-plugin');
+
+// webpack.config.js
+sharedPlugins: [
+  ...
+  new CopyPlugin([{ from: "./src/environment/environment.runtime.json", to: "environment.runtime.json" }]),
+  new CopyPlugin([{ from: "./src/translations/da-DK.json", to: "api/v1/translations/da-DK", toType: "file" }]),
+]
+```

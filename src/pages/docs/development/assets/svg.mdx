@@ -1,5 +1,18 @@
 ---
-title: 'svg'
+title: 'SVG'
+layout: 'docs'
 ---
 
-svg
+SVG's can be imported as a component:
+
+```jsx
+import { ReactComponent as Logo } from './logo.svg';
+
+function App() {
+  return (
+    <div>
+      <Logo />
+    </div>
+  );
+}
+```

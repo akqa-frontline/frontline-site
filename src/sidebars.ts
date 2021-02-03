@@ -88,6 +88,26 @@ export const sidebars = {
             },
           ],
         },
+        {
+          label: 'Assets',
+          slug: '/docs/development/assets',
+          children: [
+            {
+              label: 'SVG',
+              slug: '/docs/development/assets/svg',
+            },
+          ],
+        },
+        {
+          label: 'Integrations',
+          slug: '/docs/development/integrations',
+          children: [
+            {
+              label: 'Storybook',
+              slug: '/docs/development/integrations/storybook',
+            },
+          ],
+        },
         // {
         //   label: 'Webpack Configuration',
         //   slug: '/docs/development/webpack-config',
@@ -95,6 +115,18 @@ export const sidebars = {
         {
           label: 'Environment Variables',
           slug: '/docs/development/environment-variables',
+        },
+        {
+          label: 'Dev Server',
+          slug: '/docs/development/dev-server',
+        },
+        {
+          label: 'Public Folder',
+          slug: '/docs/development/public-folder',
+        },
+        {
+          label: 'Module No Module Builds',
+          slug: '/docs/development/module-no-module-builds',
         },
         {
           label: 'Lazy Loading',
@@ -109,6 +141,14 @@ export const sidebars = {
         {
           label: 'Contributing',
           slug: '/docs/guides/contributing',
+        },
+        // {
+        //   label: 'Installing A Dependency',
+        //   slug: '/docs/guides/installing-a-dependency',
+        // },
+        {
+          label: 'Bundle Analyzing',
+          slug: '/docs/guides/bundle-analyzing',
         },
       ],
     },

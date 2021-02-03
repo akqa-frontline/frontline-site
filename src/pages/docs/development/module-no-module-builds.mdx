@@ -1,5 +1,13 @@
 ---
-title: 'module-no-module-builds'
+title: 'Module No Module Builds'
+layout: 'docs'
 ---
 
-module-no-module-builds
+If a browser supports module scripts, the `modern-app.js` file will be loaded.
+For older browsers the unknown script `type="module"` will be ignored and the `legacy-app.js` file will be loaded.
+The `nomudule` attribute lets modern browsers skip that line so both files are not loaded.
+
+```html
+<script type="module" src="modern-app.js"></script>
+<script nomodule src="legacy-app.js"></script>
+```
