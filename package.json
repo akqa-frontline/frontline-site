@@ -17,7 +17,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate-icon-font": "npx icon-font-generator src/design-system/icons/source/*.svg -o src/design-system/icons/out --html=false --types=woff2 --json=false",
-    "cache-docs": "node src/pages/scripts/cache.js"
+    "cache-docs": "node src/scripts/cache.js"
   },
   "husky": {
     "hooks": {

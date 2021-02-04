@@ -1,4 +1,4 @@
-const posts = require('../../../cache/data2').posts;
+const posts = require('../../../cache/data').posts;
 
 export default (req, res) => {
   const results = req.query.q
