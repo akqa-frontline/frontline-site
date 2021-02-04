@@ -34,6 +34,9 @@
     "./src/**/*.{css,scss,sass}": [
       "npm run stylelint --fix",
       "npm run format-styles"
+    ],
+    "./src/**/*.mdx": [
+      "npm run cache-docs && git add cache/data.js"
     ]
   },
   "dependencies": {
