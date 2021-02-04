@@ -6,7 +6,7 @@ import { SearchResults } from '@/design-system/components/components/search/Sear
 
 const SEARCH_ENDPOINT = '/api/search';
 
-const SiteSearch = () => {
+const Search = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
@@ -31,4 +31,4 @@ const SiteSearch = () => {
     </div>
   );
 };
-export { SiteSearch };
+export { Search };
