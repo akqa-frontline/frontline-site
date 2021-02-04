@@ -11,7 +11,7 @@ const readingTime = require('reading-time');
 
 const nextConfig = {
   target: 'experimental-serverless-trace',
-  pageExtensions: ['tsx', 'mdx'],
+  pageExtensions: ['tsx', 'mdx', 'js', 'ts'],
   sassOptions: {
     // @import from design-system root
     includePaths: [path.join(__dirname, 'src/design-system')],
