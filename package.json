@@ -16,7 +16,8 @@
     "analyze": "ANALYZE=true next build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "generate-icon-font": "npx icon-font-generator src/design-system/icons/source/*.svg -o src/design-system/icons/out --html=false --types=woff2 --json=false"
+    "generate-icon-font": "npx icon-font-generator src/design-system/icons/source/*.svg -o src/design-system/icons/out --html=false --types=woff2 --json=false",
+    "cache-docs": "node src/pages/scripts/cache.js"
   },
   "husky": {
     "hooks": {
@@ -51,6 +52,7 @@
     "@theme-ui/prism": "^0.3.0",
     "change-case": "^4.1.1",
     "feather-icons": "^4.28.0",
+    "gray-matter": "^4.0.2",
     "markdown-toc": "^1.2.0",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",

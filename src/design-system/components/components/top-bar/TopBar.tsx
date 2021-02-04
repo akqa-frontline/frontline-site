@@ -3,10 +3,8 @@ import { jsx, SxStyleProp } from 'theme-ui';
 import { Flex } from '@/design-system/components/layout/flex/Flex';
 import { Box } from '@/design-system/components/elements/box/Box';
 import { FunctionComponent, ReactNode } from 'react';
-import { Input } from '@/design-system/components/elements/forms/input/Input';
-import { Icon } from '@/design-system/components/elements/icon/Icon';
-import SearchIcon from '@/design-system/icons/source/search.svg';
 import { Link } from '@/components/link/Link';
+import { Search } from '@/components/navigation/Search';
 
 export interface TopBarProps {
   children: ReactNode;
@@ -31,15 +29,8 @@ const TopBar: FunctionComponent = ({ children }) => (
     </Box>
     <Flex sx={{ flex: '0 0 auto', alignItems: 'center' }}>
       <Box>{children}</Box>
-      <Box>
-        <Input
-          append={
-            <Icon px={2}>
-              <SearchIcon />
-            </Icon>
-          }
-          type="search"
-        />
+      <Box sx={{ position: 'relative' }}>
+        <Search />
       </Box>
     </Flex>
   </Flex>
