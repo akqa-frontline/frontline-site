@@ -5,11 +5,11 @@ import { Link } from '@/design-system/components/elements/link/Link';
 
 const SearchItem = ({ result }) => {
   return (
-    <Box px={2} py={1}>
-      <li key={result.id}>
+    <li key={result.id}>
+      <Box px={2} py={1}>
         <Link href={`/docs/${result.id}`}>{result.title}</Link>
-      </li>
-    </Box>
+      </Box>
+    </li>
   );
 };
 
