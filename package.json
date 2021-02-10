@@ -36,7 +36,8 @@
       "npm run format-styles"
     ],
     "./src/**/*.mdx": [
-      "npm run cache-docs && git add cache/data.js"
+      "npm run cache-docs",
+      "git add cache/data.js"
     ]
   },
   "dependencies": {
