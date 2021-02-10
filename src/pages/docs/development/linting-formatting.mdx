@@ -1,5 +1,50 @@
 ---
-title: 'linting-formatting'
+title: 'Linting and formatting'
+layout: 'docs'
 ---
 
-linting-formatting
+The following tools will help you maintain good code quality with formatting and linting.
+
+
+## ESlint
+https://eslint.org/
+`.eslintrc.js`
+
+See package
+
+## stylelint
+https://stylelint.io/
+`.stylelintrc.js`
+
+See package
+
+## Prettier
+https://prettier.io/
+`.prettier.config.js`
+
+## EditorConfig
+The [`.editorconfig`](https://editorconfig.org/) file at the root of the project helps maintain consistent coding style across machines and editors.
+
+Some editors require you to download a plugin. Check if your editor is one of them https://editorconfig.org/#download
+
+## husky and lint-staged
+Use [husky](https://typicode.github.io/husky) to improve commits and keep them consistent with the rules of the project.
+It allows you to fire custom scripts when specific actions occur in the git process.
+
+Below is an example where ESlint, stylelint and Prettier checks for issues and autofixes if possible.
+[lint-staged](https://github.com/okonet/lint-staged) ensures that linters are only run against staged files.
+
+```
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix --max-warnings 0",
+    "*.{css,scss}": "stylelint --fix --max-warnings 0",
+    "*.{js,jsx,css,scss,md,mdx,json}": "prettier --write"
+  }
+```
+*Current setup in [frontline-starter-spa](/docs/getting-started/flavours/spa)*
+
