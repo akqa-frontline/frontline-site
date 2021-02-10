@@ -13,7 +13,7 @@ export const sidebars = {
               slug: '/docs/getting-started/flavours/spa',
             },
             {
-              label: 'For Content Management System',
+              label: 'CMS Setup',
               slug: '/docs/getting-started/flavours/cms',
             },
           ],
