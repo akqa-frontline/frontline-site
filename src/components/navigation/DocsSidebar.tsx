@@ -9,7 +9,7 @@ import { AccordionButton } from '@/design-system/components/components/accordion
 import { AccordionPanel } from '@/design-system/components/components/accordion/AccordionPanel';
 import { sidebars } from '../../sidebars';
 
-const getPadding = (level: number) =>
+export const getPadding = (level: number) =>
   level < 1 ? 2 : level < 2 ? level + 3 : level + 4;
 
 function recursive(list, level, activePath) {
