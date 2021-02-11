@@ -108,6 +108,20 @@ export const sidebars = {
             },
           ],
         },
+        {
+          label: 'Javascript',
+          slug: '/docs/development/javascript',
+          children: [
+            {
+              label: 'Javascript',
+              slug: '/docs/development/javascript/javascript',
+            },
+            {
+              label: 'React',
+              slug: '/docs/development/javascript/react',
+            },
+          ],
+        },
         // {
         //   label: 'Webpack Configuration',
         //   slug: '/docs/development/webpack-config',
