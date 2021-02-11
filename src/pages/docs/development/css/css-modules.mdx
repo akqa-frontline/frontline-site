@@ -1,5 +1,36 @@
 ---
-title: 'css-modules'
+title: 'CSS Modules'
+layout: 'docs'
 ---
 
-css-modules
+With CSS Modules you write scoped CSS instead of global CSS.
+
+CSS modules are handled by webpack when you import a CSS file inside a Javascript module.
+In this process an object mapping class will be generated that can be used in Javascript. 
+
+```css
+.example {
+    color: darkcyan;
+}
+```
+
+```jsx
+import ExampleStyles from "./Example.module.css";
+
+const Example = () => (
+    <p className={ExampleStyles.example}>
+        Hello
+    </p>
+);
+
+```
+
+Behind the mapping is a unique naming that works in the global scope.
+This is an example from a production build:
+```html
+<p class="_326uq8LsAp9xagZ0dKk3z3">Hello</p>
+```
+While in development mode it looks more readable:
+```html
+<p class="src-components-example-Example-module__example">Hello</p>
+```

@@ -122,6 +122,16 @@ export const sidebars = {
             },
           ],
         },
+        {
+          label: 'CSS',
+          slug: '/docs/development/css',
+          children: [
+            {
+              label: 'CSS Modules',
+              slug: '/docs/development/css/css-modules',
+            },
+          ],
+        },
         // {
         //   label: 'Webpack Configuration',
         //   slug: '/docs/development/webpack-config',
